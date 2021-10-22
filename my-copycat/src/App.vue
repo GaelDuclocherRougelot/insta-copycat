@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div class="flex flex-col">
     <Header />
-    <div class="h-screen"></div>
+    <div class="test h-screen w-full"></div>
+    <div class="test h-screen w-full"></div>
   </div>
 </template>
 
@@ -16,3 +17,10 @@ export default {
   },
 };
 </script>
+<style>
+  .test {
+    position: relative;
+    z-index: 0;
+    background-color: #FAFAFA;
+  }
+</style>
