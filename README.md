@@ -1,2 +1,2 @@
 # insta-copycat
-Instagram clone pixel perfect
+I make a instagram clone for demonstrate my responsive skills.
