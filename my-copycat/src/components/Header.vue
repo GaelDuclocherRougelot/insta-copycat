@@ -30,7 +30,7 @@ export default {
   name: 'Header',
   data() {
     return {
-      svg: 20,
+      svg: 15,
       rechercherIsActive: '',
       focusIsActive: false,
     };

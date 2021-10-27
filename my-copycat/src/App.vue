@@ -1,19 +1,20 @@
 <template>
   <div class="flex flex-col">
     <Header />
-    <!-- <div class="test h-screen w-full"></div>
-    <div class="test h-screen w-full"></div> -->
+    <Feed />
   </div>
 </template>
 
 <script>
 import './assets/tailwind.css';
 import Header from './components/Header.vue';
+import Feed from './components/Feed.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
+    Feed,
   },
 };
 </script>
