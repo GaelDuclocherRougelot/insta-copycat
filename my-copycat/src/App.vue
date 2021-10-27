@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col">
     <Header />
-    <div class="test h-screen w-full"></div>
-    <div class="test h-screen w-full"></div>
+    <!-- <div class="test h-screen w-full"></div>
+    <div class="test h-screen w-full"></div> -->
   </div>
 </template>
 
@@ -22,5 +22,10 @@ export default {
     position: relative;
     z-index: 0;
     background-color: #FAFAFA;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 </style>
