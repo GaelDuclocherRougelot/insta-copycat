@@ -15,12 +15,13 @@
           <img @click="deleteSearch" class="img-cross w-3 -top-5 rounded-md" src="../assets/svg\insta/search-cross.svg" alt="cross icon">
         </div>
       </div>
-      <div class="container-nav flex justify-between">
-        <img :src="require(`../assets/svg/insta/svgexport-${svg}.svg`)" alt="logo">
-        <img :src="require(`../assets/svg/insta/svgexport-${svg}.svg`)" alt="logo">
-        <img :src="require(`../assets/svg/insta/svgexport-${svg}.svg`)" alt="logo">
-        <img :src="require(`../assets/svg/insta/svgexport-${svg}.svg`)" alt="logo">
-        <img :src="require(`../assets/svg/insta/svgexport-${svg}.svg`)" alt="logo">
+      <div class="container-nav flex">
+        <img :src="require(`../assets/svg/insta/svgexport-${15}.svg`)" alt="logo">
+        <img :src="require(`../assets/svg/insta/svgexport-${7}.svg`)" alt="logo">
+        <img :src="require(`../assets/svg/insta/svgexport-${24}.svg`)" alt="logo">
+        <img :src="require(`../assets/svg/insta/svgexport-${17}.svg`)" alt="logo">
+        <img :src="require(`../assets/svg/insta/svgexport-${3}.svg`)" alt="logo">
+        <img class="rounded-full" :src="require(`../assets/user.jpg`)" alt="logo">
       </div>
     </div>
   </div>
@@ -123,11 +124,15 @@ export default {
     max-width: 120px;
   }
   .container-nav{
-    width: 222px;
+    width: 270px;
     min-width: 222px;
-    height: 22px;
+    height: 42px;
     word-spacing: 0px;
     text-decoration: none;
     padding: 0 0 0 24px;
+  }
+  .container-nav img {
+    margin: 10px;
+    cursor: pointer;
   }
 </style>
