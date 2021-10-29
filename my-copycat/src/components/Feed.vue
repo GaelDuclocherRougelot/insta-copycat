@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container flex w-full h-screen">
+  <div class="main-container flex w-full h-full">
     <div class="container-feed flex flex-col items-end">
       <div class="container-storys bg-white border border-border-primary mt-8">
         <div class="storys flex overflow-hidden">
@@ -22,8 +22,28 @@
         </div>
       </div>
 
-      <div class="publications">
-        
+      <div class="publications flex flex-col">
+        <div v-for="(publi, index) in publications" :key="index" class="publication border border-border-primary flex flex-col mt-6">
+          <div class="title flex items-center justify-between">
+            <div class="profilePicture flex items-center text-sm">
+              <img class="rounded-full border border-border-primary w-9 ml-3 cursor-pointer"  
+              src="../assets/user.jpg" alt="Profile picture">
+              <p class="ml-3 text-sm font-semibold text-gray-700">{{publi.username}}</p>
+            </div>
+            <img class="mr-5 cursor-pointer" src="../assets/svg/insta/svgexport-1.svg" alt="dots">
+          </div>
+          <div class="media flex justify-center items-center">
+            <img src="../assets/costa-rica.jpg" alt="">
+          </div>
+          <div class="publication-buttons flex justify-between">
+            <div class="like-com-fav flex w-full">
+              <img src="../assets/svg/insta/svgexport-3.svg" alt="logo">
+              <img src="../assets/svg/insta/svgexport-5.svg" alt="logo">
+              <img src="../assets/svg/insta/svgexport-7.svg" alt="logo">
+            </div>
+            <img class="mr-3 cursor-pointer" src="../assets/svg/insta/svgexport-9.svg" alt="logo">
+          </div>
+        </div>
       </div>
     </div>
 
@@ -32,7 +52,7 @@
         <div class="change-profile flex w-96 items-center">
           <img class="rounded-full w-14 cursor-pointer" src="../assets/user.jpg" alt="My picture">
           <div class="me flex flex-col ml-4 w-40">
-            <p class="font-semibold text-sm text-gray-800 cursor-pointer">duclocherrougelot</p>
+            <p class="font-semibold text-sm text-gray-700 cursor-pointer">duclocherrougelot</p>
             <span class="text-gray-400">GaelRG</span>
           </div>
           <span class="foryou-blue-span text-xs cursor-pointer font-medium">Basculer</span>
@@ -45,7 +65,7 @@
         <div v-for="(user, index) in usersForyou" :key="index" class="users-foryou flex w-96 h-8 items-center mt-5">
           <img class="rounded-full w-9 cursor-pointer" src="../assets/user.jpg" alt="My picture">
           <div class="me flex flex-col ml-4 w-44">
-            <p class="font-semibold text-sm text-gray-800 cursor-pointer hover:underline">duclocherrougelot</p>
+            <p class="font-semibold text-sm text-gray-700 cursor-pointer hover:underline">duclocherrougelot</p>
             <span class="text-gray-400 text-xs">Vous suit</span>
           </div>
           <span class="foryou-blue-span text-xs cursor-pointer font-medium">S'abonner</span>
@@ -83,7 +103,7 @@ export default {
       ],
       storys: [
         {
-          username: 'Gael',
+          username: 'duclocherrougelot',
           img: 'user',
           storyId: 0,
           animation: false,
@@ -94,6 +114,13 @@ export default {
           storyId: 1,
           animation: false,
         }, 
+      ],
+      publications: [
+        {
+          username: 'duclocherrougelot',
+        },
+        {},
+        {},
       ],
     };
   },
@@ -109,19 +136,43 @@ export default {
     margin-top: 54px;
     width: 58%;
     height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
     background-color: #FAFAFA;
-    
   }
-  /* ::-webkit-scrollbar{
-    width: 0px;
-    background: transparent;
-  } */
+  .publications {
+    min-width: 614px;
+    height: 100%;
+  }
+  .publication {
+    max-height: 1777.5px;
+  }
+  .title {
+    min-height: 60px;
+    width: 614px;
+    min-width: 614px;
+    background: #fff;
+  }
+
+  .media {
+    max-height: 767px;
+    max-width: 614px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .like-com-fav {
+    min-height: 54px;
+    width: 200px;
+  }
+
+  .like-com-fav img{
+    margin-left: 15px;
+    cursor: pointer;
+  }
+
   /* FOR-YOU */
   .container-foryou {
     width: 42%;
-    height: 100vh;
+    height: 100%;
     position: fixed;
     top: 0px;
     right: 0;
@@ -149,7 +200,7 @@ export default {
     height: 118px;
     display: flex;
     align-items: center;
-    position: absolute;
+    position: relative;
   }
   .story-imgs {
   width:80px;

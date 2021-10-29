@@ -21,8 +21,15 @@
           </div>
       </div>
       <div class="container-nav flex">
-        <img :src="require(`../assets/svg/insta/svgexport-${15}.svg`)" alt="logo">
-        <img :src="require(`../assets/svg/insta/svgexport-${7}.svg`)" alt="logo">
+        <router-link to="/">
+          <img :src="require(`../assets/svg/insta/svgexport-${15}.svg`)" alt="logo">
+        </router-link>
+        
+        <router-link to="/message">
+          <!-- <img :src="require(`../assets/svg/insta/svgexport-${21}.svg`)" alt="logo"> -->
+          <img :src="require(`../assets/svg/insta/svgexport-${7}.svg`)" alt="logo">
+        </router-link>
+        
         <img :src="require(`../assets/svg/insta/svgexport-${24}.svg`)" alt="logo">
         <img :src="require(`../assets/svg/insta/svgexport-${17}.svg`)" alt="logo">
         <img :src="require(`../assets/svg/insta/svgexport-${3}.svg`)" alt="logo">
@@ -36,7 +43,6 @@ export default {
   name: 'Header',
   data() {
     return {
-      svg: 15,
       rechercherIsActive: '',
       focusIsActive: false,
     };
@@ -139,5 +145,16 @@ export default {
   .container-nav img {
     margin: 10px;
     cursor: pointer;
+  }
+
+  a {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .router-link-exact-active{
+    
   }
 </style>
