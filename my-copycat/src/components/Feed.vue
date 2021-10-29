@@ -50,7 +50,7 @@
           </div>
           <span class="foryou-blue-span text-xs cursor-pointer font-medium">S'abonner</span>
         </div>
-        <nav class="text-xs text-gray-400 mt-8 w-80 h-64">
+        <nav class="text-xs text-gray-300 mt-8 w-80 h-64">
           <ul class="flex">
             <li>À propos</li>
             <li>Aide</li>
