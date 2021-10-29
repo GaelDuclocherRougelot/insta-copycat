@@ -2,18 +2,23 @@
   <div class="header flex justify-center items-center border-b border-border-primary bg-white">
     <div class="container flex justify-between items-center px-5 w-full">
       <div class="container-img flex justify-between items-center">
-        <img class="mt-2" src="../assets/logo.png" alt="instagram logo">
+        <router-link to="/">
+          <img class="mt-2" src="../assets/logo.png" alt="instagram logo">
+        </router-link>
       </div>
       <div class="container-search">
-        <input @click="focusIsActive = true" v-model="rechercherIsActive" :class="{inputVisibility : rechercherIsActive !== ''}" type="text" 
-        class="border border-border-primary w-full h-7 rounded-sm">
+        <input @click="focusIsActive = true" v-model="rechercherIsActive" 
+        :class="{inputVisibility : rechercherIsActive !== ''}" type="text" 
+        class="border border-border-primary w-full h-7 rounded-sm"
+        >
         <div class="search-span flex ml-2">
           <img class="img-search w-3 -top-5" src="../assets/svg\insta/search.svg" alt="search icon">
           <span v-if="rechercherIsActive == ''" class="absolute -top-7 text-sm mt-1 text-gray-400">Rechercher</span>
-          <span v-if="rechercherIsActive !== ''" class="search-focusOff absolute -top-7 text-sm mt-1 text-gray-400">{{rechercherIsActive}}</span>
+          <span v-if="rechercherIsActive !== ''" 
+          class="search-focusOff absolute -top-7 text-sm mt-1 text-gray-400">{{rechercherIsActive}}</span>
 
           <img @click="deleteSearch" class="img-cross w-3 -top-5 rounded-md" src="../assets/svg\insta/search-cross.svg" alt="cross icon">
-        </div>
+          </div>
       </div>
       <div class="container-nav flex">
         <img :src="require(`../assets/svg/insta/svgexport-${15}.svg`)" alt="logo">
@@ -44,7 +49,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
   .header{
     height: 54px;
     width: 100%;

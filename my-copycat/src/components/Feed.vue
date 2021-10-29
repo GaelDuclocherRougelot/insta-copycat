@@ -114,10 +114,10 @@ export default {
     background-color: #FAFAFA;
     
   }
-  ::-webkit-scrollbar{
-    /* width: 0px;
-    background: transparent; */
-  }
+  /* ::-webkit-scrollbar{
+    width: 0px;
+    background: transparent;
+  } */
   /* FOR-YOU */
   .container-foryou {
     width: 42%;
