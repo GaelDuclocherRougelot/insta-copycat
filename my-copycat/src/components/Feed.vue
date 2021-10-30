@@ -43,6 +43,27 @@
             </div>
             <img class="mr-3 cursor-pointer" src="../assets/svg/insta/svgexport-9.svg" alt="logo">
           </div>
+          <span class="ml-3 text-sm font-semibold text-gray-800">{{publi.views}} J'aime</span>
+          <div class="publi-title mt-2 flex">
+            <span class="ml-3 text-sm font-semibold text-gray-800 hover:underline cursor-pointer">{{publi.username}}</span>
+            <p class="ml-3 text-sm">{{publi.title}}</p>
+          </div>
+          <p v-if="publi.comments !== ''" class="ml-3 mt-1 text-sm text-gray-500 cursor-pointer">Afficher les {{publi.comments}} commentaires</p>
+          <div class="comments flex items-center justify-between">
+            <div class="flex items-center">
+              <p class="ml-3 mr-2 mt-1 font-semibold text-sm text-gray-800 cursor-pointer hover:underline">user154651</p>
+              <span class='text-sm mt-1'>Enjoy your vacation !</span>
+            </div>
+              <img class="w-3 mr-3 cursor-pointer" src="../assets/svg/insta/svgexport-3.svg" alt="logo">
+          </div>
+          <div class="comments flex items-center justify-between">
+            <div class="flex items-center">
+              <p class="ml-3 mr-2 mt-1 font-semibold text-sm text-gray-800 cursor-pointer hover:underline">user10651</p>
+              <span class='text-sm mt-1'>Wow !</span>
+            </div>
+              <img class="w-3 mr-3 cursor-pointer" src="../assets/svg/insta/svgexport-3.svg" alt="logo">
+          </div>
+          <span class="time text-gray-400 my-2 ml-3">IL Y A 6 HEURES</span>
         </div>
       </div>
     </div>
@@ -118,9 +139,22 @@ export default {
       publications: [
         {
           username: 'duclocherrougelot',
+          views: '1000',
+          title: 'Amazing !',
+          comments: '8',
         },
-        {},
-        {},
+        {
+          username: 'duclocherrougelot',
+          views: '1000',
+          title: 'Amazing !',
+          comments: '',
+        },
+        {
+          username: 'duclocherrougelot',
+          views: '1000',
+          title: 'Amazing !',
+          comments: '',
+        },
       ],
     };
   },
@@ -167,6 +201,10 @@ export default {
   .like-com-fav img{
     margin-left: 15px;
     cursor: pointer;
+  }
+
+  .time{
+    font-size: 10px;
   }
 
   /* FOR-YOU */
