@@ -1,8 +1,9 @@
 <template>
   <div class="main-container flex w-full h-full">
     <div class="container-feed flex flex-col items-end">
+
       <div class="container-storys bg-white border border-border-primary mt-8">
-        <div class="storys flex overflow-hidden">
+        <div class="storys flex">
           <div @click="story.animation = true" v-for="(story, index) in storys" :key="index" 
           class="story flex flex-col items-center cursor-pointer m-2">
             <div class="story-imgs flex flex-col items-center justify-center">
@@ -41,13 +42,15 @@
               <img src="../assets/svg/insta/svgexport-5.svg" alt="logo">
               <img src="../assets/svg/insta/svgexport-7.svg" alt="logo">
             </div>
-            <img class="mr-3 cursor-pointer" src="../assets/svg/insta/svgexport-9.svg" alt="logo">
+            <img id="fav" class="mr-3 cursor-pointer" src="../assets/svg/insta/svgexport-9.svg" alt="logo">
           </div>
           <span class="ml-3 text-sm font-semibold text-gray-800">{{publi.views}} J'aime</span>
-          <div class="publi-title mt-2 flex">
+          
+          <div class="publi-desc mt-2">
             <span class="ml-3 text-sm font-semibold text-gray-800 hover:underline cursor-pointer">{{publi.username}}</span>
             <p class="ml-3 text-sm">{{publi.title}}</p>
           </div>
+
           <p v-if="publi.comments !== ''" class="ml-3 mt-1 text-sm text-gray-500 cursor-pointer">Afficher les {{publi.comments}} commentaires</p>
           <div class="comments flex items-center justify-between">
             <div class="flex items-center">
@@ -63,7 +66,7 @@
             </div>
               <img class="w-3 mr-3 cursor-pointer" src="../assets/svg/insta/svgexport-3.svg" alt="logo">
           </div>
-          <span class="time text-gray-400 my-2 ml-3">IL Y A 6 HEURES</span>
+          <span class="time text-gray-400 my-2 ml-3">IL Y A {{publi.time}} HEURES</span>
         </div>
       </div>
     </div>
@@ -140,20 +143,26 @@ export default {
         {
           username: 'duclocherrougelot',
           views: '1000',
-          title: 'Amazing !',
+          title: 'Amazing !!!!!!!!! qidqsodhqsidhosdqoihqdsihoiqhsqdohiqsdihohsqqsdsfdffsdf',
           comments: '8',
+          time: '3',
+          liked: false,
         },
         {
           username: 'duclocherrougelot',
           views: '1000',
           title: 'Amazing !',
           comments: '',
+          time: '6',
+          liked: false,
         },
         {
           username: 'duclocherrougelot',
           views: '1000',
           title: 'Amazing !',
           comments: '',
+          time: '12',
+          liked: false,
         },
       ],
     };
@@ -184,6 +193,15 @@ export default {
     width: 614px;
     min-width: 614px;
     background: #fff;
+  }
+
+  .publi-desc{
+    white-space: nowrap;
+    overflow: hidden;
+    padding-bottom: 10px;
+    text-overflow: ellipsis;
+    display: flex;
+    width: 500px;
   }
 
   .media {
@@ -240,8 +258,16 @@ export default {
     align-items: center;
     position: relative;
   }
+  .story{
+    width: 70px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    display: block;
+  }
   .story-imgs {
-  width:80px;
+  width:70px;
   height:80px;
   overflow:hidden;
   }
