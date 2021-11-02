@@ -6,19 +6,26 @@
           <img class="mt-2" src="../assets/logo.png" alt="instagram logo">
         </router-link>
       </div>
-      <div class="container-search">
-        <input @click="focusIsActive = true" v-model="rechercherIsActive" 
-        :class="{inputVisibility : rechercherIsActive !== ''}" type="text" 
-        class="border border-border-primary w-full h-7 rounded-sm"
-        >
-        <div class="search-span flex ml-2">
-          <img class="img-search w-3 -top-5" src="../assets/svg\insta/search.svg" alt="search icon">
-          <span v-if="rechercherIsActive == ''" class="absolute -top-7 text-sm mt-1 text-gray-400">Rechercher</span>
-          <span v-if="rechercherIsActive !== ''" 
-          class="search-focusOff absolute -top-7 text-sm mt-1 text-gray-400">{{rechercherIsActive}}</span>
-
-          <img @click="deleteSearch" class="img-cross w-3 -top-5 rounded-md" src="../assets/svg\insta/search-cross.svg" alt="cross icon">
+      <div class="container-search flex flex-col items-center">
+        <input @click="searchFocused = true" v-model="rechercherIsActive" type="text" class="border border-border-primary w-full h-7 rounded-sm">
+        <div class="search-span flex">
+          <img :class="{searchImgActive : searchFocused}" class="img-search w-3 -top-5" src="../assets/svg\insta/search.svg" alt="search icon">
+          <span v-if="rechercherIsActive == ''" :class="{searchActive : searchFocused}" class="absolute -top-7 text-sm mt-1 text-gray-400 -left-6">Rechercher</span>
+          <span v-if="rechercherIsActive !== ''" class="search-focusOff absolute -top-7 text-sm mt-1 ml-20 text-gray-400">{{rechercherIsActive}}</span>
+          <img @click="deleteSearch" :class="{searchImgCrossActive : searchFocused}" class="img-cross w-3 -top-5 rounded-md" src="../assets/svg\insta/search-cross.svg" alt="cross icon">
           </div>
+
+          <div v-if="searchFocused" class="search-recent flex flex-col items-center bg-white mt-10">
+            <span class="triangle"></span>
+            <div class="w-full flex justify-start bg-white pt-4">
+            <p>Récent</p>
+            </div>
+            <div class="results">
+              <p>Aucune recherche récente.</p>
+            </div>
+          </div>
+
+  <div v-if="searchFocused" @click="searchFocused = false" class="invisibleDiv"></div>
       </div>
       <div class="container-nav flex">
         <router-link to="/">
@@ -44,13 +51,14 @@ export default {
   data() {
     return {
       rechercherIsActive: '',
-      focusIsActive: false,
+      searchFocused: false,
     };
   },
   methods: {
     deleteSearch() {
       this.rechercherIsActive = '';
-      return this.rechercherIsActive;
+      this.searchFocused = false;
+      return (this.searchFocused, this.rechercherIsActive);
     },
   },
 };
@@ -81,11 +89,12 @@ export default {
 
   .container-search{
     width: 215px;
+    height: 28px;
     background-color: #FAFAFA;
   }
   input {
     z-index: 15;
-    position: relative;
+    position: absolute;
     background-color: rgba(255, 255, 255, 0);
     padding-left: 25px;
     min-width: 215px;
@@ -96,44 +105,44 @@ export default {
   }
   input:focus{
     outline: #FAFAFA;
-
   }
   input:not(:focus){
-    color: #fafafa00;
-  }
-
-  input:focus + .search-span{
-    margin-left: -43px;
+    color: #fafafad8;
   }
   .search-span{
-    position: relative;
+    position: absolute;
+    margin-top: 28px;
   }
   .search-span span{
     z-index: 14;
-    margin-left: 70px;
     font-weight: lighter;
   }
   .img-search {
     transform: rotate(-20deg);
     position: absolute;
     margin-top: 1px;
-    margin-left: 52px;
+    margin-left: -20px;
     visibility: block;
+  }
+  .searchImgActive{
+    visibility: hidden;
   }
   .img-cross {
     position: absolute;
-    margin-left: 233px;
+    margin-left: 185px;
     width: 13px;
     z-index: 16;
-  }
-  input:focus + .search-span>.img-search{
     visibility: hidden;
+    cursor: pointer;
   }
-
-  .search-focusOff {
+  .searchImgCrossActive{
+    visibility: visible;
+  }
+  .search-focusOff{
     overflow: hidden;
     max-width: 120px;
   }
+  /* NAV */
   .container-nav{
     width: 270px;
     min-width: 222px;
@@ -141,6 +150,8 @@ export default {
     word-spacing: 0px;
     text-decoration: none;
     padding: 0 0 0 24px;
+    z-index: 5;
+    position: relative;
   }
   .container-nav img {
     margin: 10px;
@@ -156,5 +167,38 @@ export default {
 
   .router-link-exact-active{
     
+  }
+
+  .searchActive{
+    left: -75px;
+  }
+    
+  .search-recent{
+    position: relative;
+    z-index: 15;
+    min-width: 362px;
+    min-height: 375px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 1px rgba(var(--jb7,0,0,0),.0975);
+  }
+  .triangle{
+    position: absolute;
+    z-index: -1;
+    background: #fff;
+    width: 14px;
+    height: 14px;
+    top: -5px;
+    left: 175px;
+    box-shadow: 0 0 5px 1px rgba(var(--jb7,0,0,0),.0975);
+    transform: rotate(45deg);
+  }
+
+  .invisibleDiv{
+    width: 200vh;
+    height: 100vh;
+    position: absolute;
+    right: 50px;
+    top: 0;
+    z-index: 10;
   }
 </style>

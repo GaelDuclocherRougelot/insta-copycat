@@ -29,7 +29,7 @@
             <div class="profilePicture flex items-center text-sm">
               <img class="rounded-full border border-border-primary w-9 ml-3 cursor-pointer"  
               src="../assets/user.jpg" alt="Profile picture">
-              <p class="ml-3 text-sm font-semibold text-gray-700">{{publi.username}}</p>
+              <p class="ml-3 text-sm font-semibold text-gray-700 hover:underline">{{publi.username}}</p>
             </div>
             <img class="mr-5 cursor-pointer" src="../assets/svg/insta/svgexport-1.svg" alt="dots">
           </div>
