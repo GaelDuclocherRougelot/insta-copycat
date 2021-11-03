@@ -38,13 +38,16 @@
           </div>
           <div class="publication-buttons flex justify-between">
             <div class="like-com-fav flex w-full">
-              <img src="../assets/svg/insta/svgexport-3.svg" alt="logo">
+              <div @click="publi.liked = !publi.liked" class="flex justify-center">
+                <img v-if="publi.liked == false" src="../assets/svg/insta/svgexport-3.svg" alt="logo">
+                <img v-else :class="{likeAnimation : publi.liked}" src="../assets/svg/insta/svgexport-25.svg" alt="logo">
+              </div>
               <img src="../assets/svg/insta/svgexport-5.svg" alt="logo">
               <img src="../assets/svg/insta/svgexport-7.svg" alt="logo">
             </div>
             <img id="fav" class="mr-3 cursor-pointer" src="../assets/svg/insta/svgexport-9.svg" alt="logo">
           </div>
-          <span class="ml-3 text-sm font-semibold text-gray-800">{{publi.views}} J'aime</span>
+          <span class="ml-3 text-sm font-semibold text-gray-800">{{publi.likes}} J'aime</span>
           
           <div class="publi-desc mt-2">
             <span class="ml-3 text-sm font-semibold text-gray-800 hover:underline cursor-pointer">{{publi.username}}</span>
@@ -142,15 +145,15 @@ export default {
       publications: [
         {
           username: 'duclocherrougelot',
-          views: '1000',
-          title: 'Amazing !!!!!!!!! qidqsodhqsidhosdqoihqdsihoiqhsqdohiqsdihohsqqsdsfdffsdf',
+          likes: 1000,
+          title: 'Amazing !',
           comments: '8',
           time: '3',
           liked: false,
         },
         {
           username: 'duclocherrougelot',
-          views: '1000',
+          likes: 1000,
           title: 'Amazing !',
           comments: '',
           time: '6',
@@ -158,7 +161,7 @@ export default {
         },
         {
           username: 'duclocherrougelot',
-          views: '1000',
+          likes: 1000,
           title: 'Amazing !',
           comments: '',
           time: '12',
@@ -223,6 +226,22 @@ export default {
 
   .time{
     font-size: 10px;
+  }
+
+  .likeAnimation{
+    animation: like 0.3s 1;
+  }
+
+  @keyframes like {
+    0%{
+      transform: scale(1);
+    }
+    50%{
+      transform: scale(1.2);
+    }
+    100%{
+      transform: scale(0.95);
+    }
   }
 
   /* FOR-YOU */
