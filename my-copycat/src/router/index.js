@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import Message from '../views/Message.vue';
+import Explorer from '../views/Explorer.vue';
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'Home',
     component: Home,
   },
@@ -12,6 +13,11 @@ const routes = [
     path: '/message',
     name: 'Message',
     component: Message,
+  },
+  {
+    path: '/explorer',
+    name: 'Explorer',
+    component: Explorer,
   },
 ];
 

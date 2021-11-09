@@ -1,6 +1,7 @@
 <template>
-  <div class="main-container w-full h-screen">
+  <div class="main-container w-full h-screen flex flex-col">
     <Header />
+    <h1 class="mt-36">Message</h1>
   </div>
 </template>
 <script>

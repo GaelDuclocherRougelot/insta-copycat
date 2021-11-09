@@ -2,7 +2,7 @@
   <div class="header flex justify-center items-center border-b border-border-primary bg-white">
     <div class="container flex justify-between items-center px-5 w-full">
       <div class="container-img flex justify-between items-center">
-        <router-link to="/">
+        <router-link to="home">
           <img class="mt-2" src="../assets/logo.png" alt="instagram logo">
         </router-link>
       </div>
@@ -30,26 +30,30 @@
   <div v-if="searchFocused" @click="searchFocused = false" class="invisibleDiv"></div>
       </div>
       <div class="container-nav flex justify-between items-center">
-        <router-link to="/">
-          <img :src="require(`../assets/svg/insta/svgexport-${15}.svg`)" alt="logo">
+        <router-link to="home">
+          <img v-if="$route.name == 'Home' && notificationIco == false && addContentIco == false" :src="require(`../assets/svg/insta/svgexport-${15}.svg`)" alt="logo">
+          <img v-else :src="require(`../assets/svg/insta/svgexport-${20}.svg`)" alt="logo">
         </router-link>
         
         <router-link to="/message">
-          <!-- <img :src="require(`../assets/svg/insta/svgexport-${21}.svg`)" alt="logo"> -->
-          <img :src="require(`../assets/svg/insta/svgexport-${7}.svg`)" alt="logo">
+          <img v-if="$route.name == 'Message' && notificationIco == false && addContentIco == false" :src="require(`../assets/svg/insta/svgexport-${21}.svg`)" alt="logo">
+          <img v-else :src="require(`../assets/svg/insta/svgexport-${7}.svg`)" alt="logo">
         </router-link>
         
-        <router-link to="#">
-          <img :src="require(`../assets/svg/insta/svgexport-${24}.svg`)" alt="logo">
+        <div @click="addContentIco = !addContentIco">
+          <img v-if="addContentIco == false" :src="require(`../assets/svg/insta/svgexport-${24}.svg`)" alt="logo">
+          <img v-else :src="require(`../assets/svg/insta/svgexport-${26}.svg`)" alt="logo">
+        </div>
+
+        <router-link to="explorer">
+          <img v-if="$route.name == 'Explorer' && notificationIco == false && addContentIco == false" :src="require(`../assets/svg/insta/svgexport-${23}.svg`)" alt="logo">
+          <img v-else :src="require(`../assets/svg/insta/svgexport-${17}.svg`)" alt="logo">
         </router-link>
 
-        <router-link to="#">
-          <img :src="require(`../assets/svg/insta/svgexport-${17}.svg`)" alt="logo">
-        </router-link>
-
-        <router-link to="#">
-          <img :src="require(`../assets/svg/insta/svgexport-${3}.svg`)" alt="logo">
-        </router-link>
+        <div @click="notificationIco = !notificationIco">
+          <img v-if="notificationIco == false" :src="require(`../assets/svg/insta/svgexport-${3}.svg`)" alt="logo">
+          <img v-else :src="require(`../assets/svg/insta/svgexport-${22}.svg`)" alt="logo">
+        </div>
 
         <router-link to="#">
           <img class="rounded-full" :src="require(`../assets/user.jpg`)" alt="logo">
@@ -66,6 +70,8 @@ export default {
       rechercherIsActive: '',
       searchFocused: false,
       loaderAnim: false,
+      notificationIco: false,
+      addContentIco: false,
     };
   },
   methods: {
