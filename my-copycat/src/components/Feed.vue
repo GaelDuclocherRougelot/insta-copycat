@@ -2,7 +2,7 @@
   <div class="main-container flex w-full h-full">
     <div class="container-feed flex flex-col items-end">
 
-      <div class="container-storys bg-white border border-border-primary mt-8">
+      <div class="container-storys bg-white border border-border-primary mt-8 rounded-sm">
         <div class="storys flex">
           <div @click="story.animation = true" v-for="(story, index) in storys" :key="index" 
           class="story flex flex-col items-center cursor-pointer m-2">
@@ -24,7 +24,7 @@
       </div>
 
       <div class="publications flex flex-col">
-        <div v-for="(publi, index) in publications" :key="index" class="publication border border-border-primary flex flex-col mt-6">
+        <div v-for="(publi, index) in publications" :key="index" class="publication border border-border-primary rounded-sm flex flex-col mt-6">
           <div class="title flex items-center justify-between">
             <div class="profilePicture flex items-center text-sm">
               <img class="rounded-full border border-border-primary w-9 ml-3 cursor-pointer"  
@@ -42,19 +42,19 @@
                 <img v-if="publi.liked == false" src="../assets/svg/insta/svgexport-3.svg" alt="logo">
                 <img v-else :class="{likeAnimation : publi.liked}" src="../assets/svg/insta/svgexport-25.svg" alt="logo">
               </div>
-              <img src="../assets/svg/insta/svgexport-5.svg" alt="logo">
-              <img src="../assets/svg/insta/svgexport-7.svg" alt="logo">
+              <img class="w-6" src="../assets/svg/insta/svgexport-5.svg" alt="logo">
+              <img class="w-6" src="../assets/svg/insta/svgexport-7.svg" alt="logo">
             </div>
-            <img id="fav" class="mr-3 cursor-pointer" src="../assets/svg/insta/svgexport-9.svg" alt="logo">
+            <img id="fav" class="mr-3 cursor-pointer w-6" src="../assets/svg/insta/svgexport-9.svg" alt="logo">
           </div>
-          <span class="ml-3 text-sm font-semibold text-gray-800">{{publi.likes}} J'aime</span>
+          <span class="ml-3 text-sm font-semibold text-gray-800 cursor-pointer">{{publi.likes}} J'aime</span>
           
           <div class="publi-desc mt-2">
             <span class="ml-3 text-sm font-semibold text-gray-800 hover:underline cursor-pointer">{{publi.username}}</span>
             <p class="ml-3 text-sm">{{publi.title}}</p>
           </div>
 
-          <p v-if="publi.comments !== ''" class="ml-3 mt-1 text-sm text-gray-500 cursor-pointer">Afficher les {{publi.comments}} commentaires</p>
+          <p v-if="publi.comments !== ''" class="bg-white ml-3 mt-1 text-sm text-gray-500 cursor-pointer">Afficher les {{publi.comments}} commentaires</p>
           <div class="comments flex items-center justify-between">
             <div class="flex items-center">
               <p class="ml-3 mr-2 mt-1 font-semibold text-sm text-gray-800 cursor-pointer hover:underline">user154651</p>
@@ -70,6 +70,12 @@
               <img class="w-3 mr-3 cursor-pointer" src="../assets/svg/insta/svgexport-3.svg" alt="logo">
           </div>
           <span class="time text-gray-400 my-2 ml-3">IL Y A {{publi.time}} HEURES</span>
+
+          <div class="add-comment flex py-4 border-t mt-2">
+            <img class="ml-3" src="../assets/svg/insta/svgexport-12.svg" alt="">
+            <input class="ml-3 w-full text-sm" type="text" v-model="publi.comment" placeholder="Ajouter un commentaire...">
+            <span :class="{publishComment : publi.comment !== ''}" class="px-5 text-sm text-blue-200 font-semibold cursor-default">Publier</span>
+          </div>
         </div>
       </div>
     </div>
@@ -150,6 +156,7 @@ export default {
           comments: '8',
           time: '3',
           liked: false,
+          comment: '',
         },
         {
           username: 'duclocherrougelot',
@@ -158,6 +165,7 @@ export default {
           comments: '',
           time: '6',
           liked: false,
+          comment: '',
         },
         {
           username: 'duclocherrougelot',
@@ -166,6 +174,7 @@ export default {
           comments: '',
           time: '12',
           liked: false,
+          comment: '',
         },
       ],
     };
@@ -190,6 +199,7 @@ export default {
   }
   .publication {
     max-height: 1777.5px;
+    background-color: #fff;
   }
   .title {
     min-height: 60px;
@@ -241,6 +251,27 @@ export default {
     }
     100%{
       transform: scale(0.95);
+    }
+  }
+
+  .add-comment input:focus {
+    outline: #fff;
+  }
+  .publishComment{
+    color: #0099ff;
+    cursor: pointer;
+  }
+
+  @media  (max-width: 1100px) {
+    .container-foryou{
+      display: none;
+    }
+    .main-container{
+      justify-content: center;
+      align-items: center;
+    }
+    .container-storys{
+      margin-top: 60px;
     }
   }
 
