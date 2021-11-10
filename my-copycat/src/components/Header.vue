@@ -30,15 +30,28 @@
 
   <div v-if="searchFocused" @click="searchFocused = false" class="invisibleDiv"></div>
   <div v-if="notificationIco" @click="notificationIco = false" class="invisibleDiv"></div>
+  <div v-if="profileIco" @click="profileIco = false" class="invisibleDiv"></div>
+
+  <div v-if="addContentIco" @click="addContentIco = false" class="modalDiv">
+    <svg aria-label="Fermer" class="_8-yf5 absolute top-4 right-0 cursor-pointer" color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M41.8 9.8L27.5 24l14.2 14.2c.6.6.6 1.5 0 2.1l-1.4 1.4c-.6.6-1.5.6-2.1 0L24 27.5 9.8 41.8c-.6.6-1.5.6-2.1 0l-1.4-1.4c-.6-.6-.6-1.5 0-2.1L20.5 24 6.2 9.8c-.6-.6-.6-1.5 0-2.1l1.4-1.4c.6-.6 1.5-.6 2.1 0L24 20.5 38.3 6.2c.6-.6 1.5-.6 2.1 0l1.4 1.4c.6.6.6 1.6 0 2.2z" fill-rule="evenodd"></path></svg>
+    <div class="modalDiv-content flex flex-col">
+      <h2 class="text-center py-2 font-semibold border-b">Créer une nouvelle publication</h2>
+      <div class="modaldiv-dropzone w-full h-full flex flex-col items-center justify-center">
+        <img src="../assets/svg\insta/svgexport-27.svg" alt="">
+        <h2 class="py-4 font-thin text-gray-900">Faites glisser les photos et les vidéos ici</h2>
+        <button class="font-semibold px-3 py-1">Sélectionner sur l'ordinateur</button>
+      </div>
+    </div>
+  </div>
       </div>
       <div class="container-nav flex justify-between items-center">
         <router-link to="/">
-          <img v-if="$route.name == 'Home' && notificationIco == false && addContentIco == false" :src="require(`../assets/svg/insta/svgexport-${15}.svg`)" alt="logo">
+          <img v-if="$route.name == 'Home' && notificationIco == false && addContentIco == false && profileIco == false" :src="require(`../assets/svg/insta/svgexport-${15}.svg`)" alt="logo">
           <img v-else :src="require(`../assets/svg/insta/svgexport-${20}.svg`)" alt="logo">
         </router-link>
         
         <router-link to="/message">
-          <img v-if="$route.name == 'Message' && notificationIco == false && addContentIco == false" :src="require(`../assets/svg/insta/svgexport-${21}.svg`)" alt="logo">
+          <img v-if="$route.name == 'Message' && notificationIco == false && addContentIco == false && profileIco == false" :src="require(`../assets/svg/insta/svgexport-${21}.svg`)" alt="logo">
           <img v-else :src="require(`../assets/svg/insta/svgexport-${7}.svg`)" alt="logo">
         </router-link>
         
@@ -48,7 +61,7 @@
         </div>
 
         <router-link to="explorer">
-          <img v-if="$route.name == 'Explorer' && notificationIco == false && addContentIco == false" :src="require(`../assets/svg/insta/svgexport-${23}.svg`)" alt="logo">
+          <img v-if="$route.name == 'Explorer' && notificationIco == false && addContentIco == false && profileIco == false" :src="require(`../assets/svg/insta/svgexport-${23}.svg`)" alt="logo">
           <img v-else :src="require(`../assets/svg/insta/svgexport-${17}.svg`)" alt="logo">
         </router-link>
 
@@ -78,9 +91,22 @@
           </div>
         </div>
 
-        <router-link to="#">
+        <div @click="profileIco = !profileIco">
+          <svg v-if="profileIco" class="w-20 absolute top-0 -right-10" viewbox="0 0 100 100">
+                <defs>
+                  <linearGradient id="test" x1="0%" y1="50%" x2="50%" y2="0%">
+                    <stop offset="0%" stop-color="#000"/>
+                    <stop offset="100%" stop-color="#000"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="29" cy="21" r="14" fill="none" stroke="url(#test)"/>
+              </svg>
           <img class="rounded-full" :src="require(`../assets/user.jpg`)" alt="logo">
-        </router-link>
+          <div v-if="profileIco" class="profileTab flex flex-col items-center bg-white mt-10 absolute">
+            <span class="triangle3"></span>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -95,6 +121,7 @@ export default {
       loaderAnim: false,
       notificationIco: false,
       addContentIco: false,
+      profileIco: false,
     };
   },
   methods: {
@@ -232,10 +259,6 @@ export default {
     margin-top: 6px;
   }
 
-  .router-link-exact-active{
-    
-  }
-
   .searchDesactive{
     margin-left: 75px;
   }
@@ -281,6 +304,13 @@ export default {
     border-radius: 5px;
     z-index: 11;
   }
+  .profileTab{
+    width: 500px;
+    height: 250px;
+    box-shadow: 0 0 5px 1px rgba(var(--jb7,0,0,0),.0975);
+    border-radius: 5px;
+    z-index: 11;
+  }
     .triangle2{
     position: absolute;
     z-index: -1;
@@ -291,5 +321,64 @@ export default {
     left: 422px;
     box-shadow: 0 0 5px 1px rgba(var(--jb7,0,0,0),.0975);
     transform: rotate(45deg);
+  }
+  .triangle3{
+    position: absolute;
+    z-index: -1;
+    background: #fff;
+    width: 14px;
+    height: 14px;
+    top: -5px;
+    left: 422px;
+    box-shadow: 0 0 5px 1px rgba(var(--jb7,0,0,0),.0975);
+    transform: rotate(45deg);
+  }
+
+  .modalDiv{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    right: 0px;
+    top: 0;
+    z-index: 16;
+    background: rgba(0, 0, 0, 0.842);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modalDiv-content{
+    position: relative;
+    max-width: 756px;
+    max-height: 799px;
+    width: 756px;
+    height: 799px;
+    background: #fff;
+    border-radius: 15px;
+    z-index: 17;
+  }
+
+  @media  (max-width: 1100px){
+    .modalDiv-content{
+      width: 500px;
+      height: 550px;
+    }
+  }
+
+  @media  (max-width:590px) {
+    .container-search{
+      display: none;
+    }
+  }
+
+  .modaldiv-dropzone button{
+    background-color: #0095F6;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  .modaldiv-dropzone h2{
+    font-size: 22px;
   }
 </style>

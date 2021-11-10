@@ -1,5 +1,5 @@
 <template>
-  <div class="home w-full h-screen">
+  <div class="home w-full h-full">
     <Header />
     <Feed />
   </div>

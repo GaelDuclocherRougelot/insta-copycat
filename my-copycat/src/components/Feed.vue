@@ -192,19 +192,22 @@ export default {
     width: 58%;
     height: 100%;
     background-color: #FAFAFA;
+    max-width: 100%;
   }
   .publications {
-    min-width: 614px;
+    /* max-width: 614px; */
     height: 100%;
+    max-width: 100%;
   }
   .publication {
     max-height: 1777.5px;
     background-color: #fff;
+    max-width: 100%;
   }
   .title {
     min-height: 60px;
     width: 614px;
-    min-width: 614px;
+    max-width: 100%;
     background: #fff;
   }
 
@@ -273,6 +276,9 @@ export default {
     .container-storys{
       margin-top: 60px;
     }
+    .container-feed{
+      width: auto;
+    }
   }
 
   /* FOR-YOU */
@@ -302,11 +308,11 @@ export default {
   /* STORYS */  
   .container-storys{
     width: 614px;
-    min-width: 614px;
     height: 118px;
     display: flex;
     align-items: center;
     position: relative;
+    max-width: 100%;
   }
   .story{
     width: 70px;
