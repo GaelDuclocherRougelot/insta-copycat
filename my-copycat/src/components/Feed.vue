@@ -11,8 +11,8 @@
               <svg :class="{svgAnim : story.animation }" viewbox="0 0 100 100">
                 <defs>
                   <linearGradient id="linear" x1="0%" y1="30%" x2="30%" y2="0%">
-                    <stop offset="0%" stop-color="#FF9100"/>
-                    <stop offset="100%" stop-color="#cd476b"/>
+                    <stop offset="0%" stop-color="#FAAE6C"/>
+                    <stop offset="100%" stop-color="#D358A5"/>
                   </linearGradient>
                 </defs>
                 <circle cx="35" cy="75" r="32" stroke="url(#linear)"/>

@@ -2,8 +2,9 @@
   <div class="header flex justify-center items-center border-b border-border-primary bg-white">
     <div class="container flex justify-between items-center px-5 w-full">
       <div class="container-img flex justify-between items-center">
-        <router-link to="home">
-          <img class="mt-2" src="../assets/logo.png" alt="instagram logo">
+        <router-link to="/">
+          <!-- <img class="mt-2" src="../assets/logo2.png" alt="instagram logo"> -->
+          <span class="text-xl">𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓸𝓸𝓶</span>
         </router-link>
       </div>
       <div class="container-search flex flex-col items-center ml-10">
@@ -12,7 +13,7 @@
           <img :class="{searchImgActive : searchFocused}" class="img-search w-3" src="../assets/svg\insta/search.svg" alt="search icon">
           <span v-if="rechercherIsActive == ''" :class="{searchActive : searchFocused}" class="searchDesactive absolute text-sm mt-1 text-gray-400">Rechercher</span>
           <span v-if="searchFocused == false && rechercherIsActive !== ''" class="search-focusOff absolute text-sm mt-1 ml-20 text-gray-400">{{rechercherIsActive}}</span>
-          <img v-if="loaderAnim" class="search-loader w-4 animate-spin absolute" src="../assets/svg\insta/svgexport-14.svg" alt="">
+          <img v-if="loaderAnim && searchFocused" class="search-loader w-4 animate-spin absolute" src="../assets/svg\insta/svgexport-14.svg" alt="">
           <img v-if="loaderAnim == false" @click="deleteSearch" :class="{searchImgCrossActive : searchFocused}" class="img-cross w-3 rounded-md" src="../assets/svg\insta/search-cross.svg" alt="cross icon">
           </div>
 
@@ -21,16 +22,17 @@
             <div class="w-full flex justify-start bg-white rounded-t-md pt-4">
             <p v-if="loaderAnim == false" class="ml-4 font-semibold">Récent</p>
             </div>
-            <div class="results w-full h-full justify-center items-center flex">
+            <div class="w-full h-full justify-center items-center flex">
               <img v-if="loaderAnim" class="w-5 animate-spin" src="../assets/svg\insta/svgexport-14.svg" alt="">
               <p v-else class="text-sm text-gray-400 font-semibold">Aucune recherche récente.</p>
             </div>
           </div>
 
   <div v-if="searchFocused" @click="searchFocused = false" class="invisibleDiv"></div>
+  <div v-if="notificationIco" @click="notificationIco = false" class="invisibleDiv"></div>
       </div>
       <div class="container-nav flex justify-between items-center">
-        <router-link to="home">
+        <router-link to="/">
           <img v-if="$route.name == 'Home' && notificationIco == false && addContentIco == false" :src="require(`../assets/svg/insta/svgexport-${15}.svg`)" alt="logo">
           <img v-else :src="require(`../assets/svg/insta/svgexport-${20}.svg`)" alt="logo">
         </router-link>
@@ -50,9 +52,30 @@
           <img v-else :src="require(`../assets/svg/insta/svgexport-${17}.svg`)" alt="logo">
         </router-link>
 
-        <div @click="notificationIco = !notificationIco">
+        <div @click="notificationIco = !notificationIco, loaderAnimation()">
           <img v-if="notificationIco == false" :src="require(`../assets/svg/insta/svgexport-${3}.svg`)" alt="logo">
           <img v-else :src="require(`../assets/svg/insta/svgexport-${22}.svg`)" alt="logo">
+
+          <div v-if="notificationIco" class="notificationTab flex flex-col items-center bg-white top-19 mt-3 -right-4 absolute">
+            <span v-if="loaderAnim == false" class="triangle2"></span>
+            <div class="flex flex-col items-center bg-white rounded-t-md z-11 relative">
+              <img v-if="loaderAnim" class="w-10 my-10 animate-spin" src="../assets/svg\insta/svgexport-14.svg" alt="">
+            <div v-else class="w-full h-full justify-center items-center flex flex-col pb-5">
+              <svg class="w-20 mt-4" viewbox="0 0 100 100">
+                <defs>
+                  <linearGradient id="test" x1="0%" y1="35%" x2="35%" y2="0%">
+                    <stop offset="0%" stop-color="#000"/>
+                    <stop offset="100%" stop-color="#000"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="40" cy="75" r="39" fill="none" stroke="url(#test)"/>
+              </svg>
+              <img :src="require(`../assets/svg/insta/svgexport-${3}.svg`)" class="absolute top-20">
+              <p  class="text-sm -mt-5">Activité sur vos publications</p>
+              <p  class="text-sm mt-3 pb-5">Lorsque quelqu’un aime ou commente une de vos publications, vous le voyez ici.</p>
+            </div>
+            </div>
+          </div>
         </div>
 
         <router-link to="#">
@@ -92,6 +115,8 @@ export default {
 };
 </script>
 <style scoped>
+  @import url(//db.onlinewebfonts.com/c/6d32b8e06f40fb7698cfb714b9e7975d?family=BillabongW00-Regular);
+
   .header{
     height: 54px;
     width: 100%;
@@ -247,5 +272,24 @@ export default {
     right: 50px;
     top: 0;
     z-index: 10;
+  }
+
+  .notificationTab{
+    min-width: 500px;
+    max-height: 250px;
+    box-shadow: 0 0 5px 1px rgba(var(--jb7,0,0,0),.0975);
+    border-radius: 5px;
+    z-index: 11;
+  }
+    .triangle2{
+    position: absolute;
+    z-index: -1;
+    background: #fff;
+    width: 14px;
+    height: 14px;
+    top: -5px;
+    left: 422px;
+    box-shadow: 0 0 5px 1px rgba(var(--jb7,0,0,0),.0975);
+    transform: rotate(45deg);
   }
 </style>

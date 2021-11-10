@@ -5,7 +5,7 @@ import Explorer from '../views/Explorer.vue';
 
 const routes = [
   {
-    path: '/home',
+    path: '/',
     name: 'Home',
     component: Home,
   },
