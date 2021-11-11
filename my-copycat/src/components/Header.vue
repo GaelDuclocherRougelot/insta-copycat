@@ -3,7 +3,7 @@
     <div class="container flex justify-between items-center px-5 w-full">
       <div class="container-img flex justify-between items-center">
         <router-link to="/">
-          <!-- <img class="mt-2" src="../assets/logo2.png" alt="instagram logo"> -->
+          <!-- <img class="mt-2" src="../assets/logo.png" alt="instagram logo"> -->
           <span class="text-xl">𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓸𝓸𝓶</span>
         </router-link>
       </div>
@@ -16,7 +16,6 @@
           <img v-if="loaderAnim && searchFocused" class="search-loader w-4 animate-spin absolute" src="../assets/svg\insta/svgexport-14.svg" alt="">
           <img v-if="loaderAnim == false" @click="deleteSearch" :class="{searchImgCrossActive : searchFocused}" class="img-cross w-3 rounded-md" src="../assets/svg\insta/search-cross.svg" alt="cross icon">
           </div>
-          
           <div v-if="searchFocused" class="search-recent flex flex-col items-center bg-white mt-10">
             <span class="triangle"></span>
             <div class="w-full flex justify-start bg-white rounded-t-md pt-4">
@@ -33,7 +32,7 @@
   <div v-if="profileIco" @click="profileIco = false" class="invisibleDiv"></div>
 
   <div v-if="addContentIco" @click="addContentIco = false" class="modalDiv">
-    <svg aria-label="Fermer" class="_8-yf5 absolute top-4 right-0 cursor-pointer" color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M41.8 9.8L27.5 24l14.2 14.2c.6.6.6 1.5 0 2.1l-1.4 1.4c-.6.6-1.5.6-2.1 0L24 27.5 9.8 41.8c-.6.6-1.5.6-2.1 0l-1.4-1.4c-.6-.6-.6-1.5 0-2.1L20.5 24 6.2 9.8c-.6-.6-.6-1.5 0-2.1l1.4-1.4c.6-.6 1.5-.6 2.1 0L24 20.5 38.3 6.2c.6-.6 1.5-.6 2.1 0l1.4 1.4c.6.6.6 1.6 0 2.2z" fill-rule="evenodd"></path></svg>
+    <svg aria-label="Fermer" class="_8-yf5 absolute top-4 right-4 cursor-pointer" color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M41.8 9.8L27.5 24l14.2 14.2c.6.6.6 1.5 0 2.1l-1.4 1.4c-.6.6-1.5.6-2.1 0L24 27.5 9.8 41.8c-.6.6-1.5.6-2.1 0l-1.4-1.4c-.6-.6-.6-1.5 0-2.1L20.5 24 6.2 9.8c-.6-.6-.6-1.5 0-2.1l1.4-1.4c.6-.6 1.5-.6 2.1 0L24 20.5 38.3 6.2c.6-.6 1.5-.6 2.1 0l1.4 1.4c.6.6.6 1.6 0 2.2z" fill-rule="evenodd"></path></svg>
     <div class="modalDiv-content flex flex-col">
       <h2 class="text-center py-2 font-semibold border-b">Créer une nouvelle publication</h2>
       <div class="modaldiv-dropzone w-full h-full flex flex-col items-center justify-center">
@@ -56,7 +55,7 @@
           <img v-else :src="require(`../assets/svg/insta/svgexport-${7}.svg`)" alt="logo">
         </router-link>
         
-        <div @click="addContentIco = !addContentIco">
+        <div class="cursor-pointer" @click="addContentIco = !addContentIco">
           <img v-if="addContentIco == false" :src="require(`../assets/svg/insta/svgexport-${24}.svg`)" alt="logo">
           <img v-else :src="require(`../assets/svg/insta/svgexport-${26}.svg`)" alt="logo">
         </div>
@@ -66,7 +65,7 @@
           <img v-else :src="require(`../assets/svg/insta/svgexport-${17}.svg`)" alt="logo">
         </router-link>
 
-        <div @click="notificationIco = !notificationIco, loaderAnimation()">
+        <div @click="notificationIco = !notificationIco, loaderAnimation()" class="cursor-pointer">
           <img v-if="notificationIco == false" :src="require(`../assets/svg/insta/svgexport-${3}.svg`)" alt="logo">
           <img v-else :src="require(`../assets/svg/insta/svgexport-${22}.svg`)" alt="logo">
 
@@ -92,7 +91,7 @@
           </div>
         </div>
 
-        <div @click="profileIco = !profileIco">
+        <div @click="profileIco = !profileIco" class="cursor-pointer">
           <svg v-if="profileIco" class="w-20 absolute top-0 -right-10" viewbox="0 0 100 100">
                 <defs>
                   <linearGradient id="test" x1="0%" y1="50%" x2="50%" y2="0%">

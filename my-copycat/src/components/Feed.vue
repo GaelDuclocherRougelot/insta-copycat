@@ -35,19 +35,24 @@
             </div>
             <img class="mr-5 cursor-pointer" src="../assets/svg/insta/svgexport-1.svg" alt="dots">
           </div>
-          <div class="media flex justify-center items-center">
-            <img src="../assets/costa-rica.jpg" alt="">
+          <div @dblclick="publi.liked = !publi.liked, publi.liked2 = !publi.liked2" class="media flex justify-center items-center">
+            <img src="../assets/costa-rica.jpg" alt="image">
+            <img v-if="publi.liked2" :class="{likeAnimation2 : publi.liked2}" class="opacity-0 absolute w-28 blur-lg" src="../assets/heart.png" alt="heart">
           </div>
           <div class="publication-buttons flex justify-between">
             <div class="like-com-fav flex w-full">
               <div @click="publi.liked = !publi.liked" class="flex justify-center">
-                <img v-if="publi.liked == false" src="../assets/svg/insta/svgexport-3.svg" alt="logo">
+                <img v-if="publi.liked == false" class="btns" src="../assets/svg/insta/svgexport-3.svg" alt="logo">
                 <img v-else :class="{likeAnimation : publi.liked}" src="../assets/svg/insta/svgexport-25.svg" alt="logo">
               </div>
-              <img class="w-6" src="../assets/svg/insta/svgexport-5.svg" alt="logo">
-              <img class="w-6" src="../assets/svg/insta/svgexport-7.svg" alt="logo">
+              <img class="w-6 btns" src="../assets/svg/insta/svgexport-5.svg" alt="logo">
+              <img class="w-6 btns" src="../assets/svg/insta/svgexport-7.svg" alt="logo">
             </div>
-            <img id="fav" class="mr-3 cursor-pointer w-6" src="../assets/svg/insta/svgexport-9.svg" alt="logo">
+            <div @click="publi.fav = !publi.fav" class="mr-3 mt-3">
+              <img v-if="publi.fav" class="mr-3 cursor-pointer w-6" src="../assets/svg/insta/svgexport-32.svg" alt="logo">
+              <img v-else class="btns mr-3 cursor-pointer w-6 " src="../assets/svg/insta/svgexport-9.svg" alt="logo">
+            </div>
+
           </div>
           <span class="ml-3 text-sm font-semibold text-gray-800 cursor-pointer">{{publi.likes}} J'aime</span>
           
@@ -62,14 +67,10 @@
               <p class="ml-3 mr-2 mt-1 font-semibold text-sm text-gray-800 cursor-pointer hover:underline">user154651</p>
               <span class='text-sm mt-1'>Enjoy your vacation !</span>
             </div>
-              <img class="w-3 mr-3 cursor-pointer" src="../assets/svg/insta/svgexport-3.svg" alt="logo">
-          </div>
-          <div class="comments flex items-center justify-between">
-            <div class="flex items-center">
-              <p class="ml-3 mr-2 mt-1 font-semibold text-sm text-gray-800 cursor-pointer hover:underline">user10651</p>
-              <span class='text-sm mt-1'>Wow !</span>
+            <div @click="publi.commentLiked = !publi.commentLiked">
+              <img v-if="publi.commentLiked == false" class="w-3 mr-3 cursor-pointer btns" src="../assets/svg/insta/svgexport-3.svg" alt="logo">
+              <img v-else :class="{likeAnimation : publi.commentLiked}" class="w-3 cursor-pointer mr-3" src="../assets/svg/insta/svgexport-25.svg" alt="logo">
             </div>
-              <img class="w-3 mr-3 cursor-pointer" src="../assets/svg/insta/svgexport-3.svg" alt="logo">
           </div>
           <span class="time text-gray-400 my-2 ml-3">IL Y A {{publi.time}} HEURES</span>
 
@@ -195,7 +196,10 @@ export default {
           comments: '8',
           time: '3',
           liked: false,
+          liked2: false,
           comment: '',
+          commentLiked: false,
+          fav: false,
         },
         {
           username: 'duclocherrougelot',
@@ -204,7 +208,10 @@ export default {
           comments: '',
           time: '6',
           liked: false,
+          liked2: false,
           comment: '',
+          commentLiked: false,
+          fav: false,
         },
         {
           username: 'duclocherrougelot',
@@ -213,7 +220,10 @@ export default {
           comments: '',
           time: '12',
           liked: false,
+          liked2: false,
           comment: '',
+          commentLiked: false,
+          fav: false,
         },
       ],
     };
@@ -276,12 +286,21 @@ export default {
     cursor: pointer;
   }
 
+  .btns:hover{
+filter: sepia(100%) brightness(200%) saturate(0%) contrast(106%) invert(6%);
+-webkit-filter: sepia(100%) brightness(200%) saturate(0%) contrast(106%) invert(6%);
+-moz-filter: sepia(100%) brightness(200%) saturate(0%) contrast(106%) invert(6%);
+  }
+
   .time{
     font-size: 10px;
   }
 
   .likeAnimation{
     animation: like 0.3s 1;
+  }
+  .likeAnimation2{
+    animation: like2 0.8s 1;
   }
 
   @keyframes like {
@@ -293,6 +312,24 @@ export default {
     }
     100%{
       transform: scale(0.95);
+    }
+  }
+    @keyframes like2 {
+    0%{
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    50%{
+      transform: scale(1.2);
+      opacity: 0.9;
+    }
+    60%{
+      transform: scale(1.2);
+      opacity: 0.9;
+    }
+    100%{
+      transform: scale(0.5);
+      opacity: 0;
     }
   }
 
