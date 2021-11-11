@@ -3,7 +3,9 @@
     <div class="container-feed flex flex-col items-end">
 
       <div class="container-storys bg-white border border-border-primary mt-8 rounded-sm">
-        <div class="storys flex">
+        <button v-if="scrollStorys" @click="scrollStorys = false" class="text-gray-700 rotate absolute left-0 z-10 font-semibold text-2xl rounded-full mt-3"><span>></span></button>
+        <button v-show="scrollStorys == false" @click="scrollStorys = true" class="text-gray-700 absolute rounded-full right-0 z-10 font-semibold text-2xl"><span>></span></button>
+        <div class="storys flex" :class="{storysScroll:scrollStorys}">
           <div @click="story.animation = true" v-for="(story, index) in storys" :key="index" 
           class="story flex flex-col items-center cursor-pointer m-2">
             <div class="story-imgs flex flex-col items-center justify-center">
@@ -127,6 +129,7 @@ export default {
   name: 'Feed',
   data() {
     return {
+      scrollStorys: false,
       usersForyou: [
         {},
         {},
@@ -139,6 +142,42 @@ export default {
           username: 'duclocherrougelot',
           img: 'user',
           storyId: 0,
+          animation: false,
+        }, 
+        {
+          username: 'User',
+          img: 'user',
+          storyId: 1,
+          animation: false,
+        }, 
+        {
+          username: 'User',
+          img: 'user',
+          storyId: 1,
+          animation: false,
+        }, 
+        {
+          username: 'User',
+          img: 'user',
+          storyId: 1,
+          animation: false,
+        }, 
+        {
+          username: 'User',
+          img: 'user',
+          storyId: 1,
+          animation: false,
+        }, 
+        {
+          username: 'User',
+          img: 'user',
+          storyId: 1,
+          animation: false,
+        }, 
+        {
+          username: 'User',
+          img: 'user',
+          storyId: 1,
           animation: false,
         }, 
         {
@@ -308,11 +347,15 @@ export default {
   /* STORYS */  
   .container-storys{
     width: 614px;
-    height: 118px;
+    min-height: 118px;
     display: flex;
     align-items: center;
     position: relative;
     max-width: 100%;
+    overflow: hidden;
+  }
+  .container-storys .rotate{
+    transform: rotate(180deg)
   }
   .story{
     width: 70px;
@@ -321,6 +364,14 @@ export default {
     text-overflow: ellipsis;
     text-align: center;
     display: block;
+
+  }
+  .storys{
+    transition: all 0.5s ease;
+  }
+  .storysScroll{
+    transform: translateX(-80px);
+    transition: all 0.5s ease;
   }
   .story-imgs {
   width:70px;

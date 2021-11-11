@@ -16,17 +16,17 @@
           <img v-if="loaderAnim && searchFocused" class="search-loader w-4 animate-spin absolute" src="../assets/svg\insta/svgexport-14.svg" alt="">
           <img v-if="loaderAnim == false" @click="deleteSearch" :class="{searchImgCrossActive : searchFocused}" class="img-cross w-3 rounded-md" src="../assets/svg\insta/search-cross.svg" alt="cross icon">
           </div>
-
+          
           <div v-if="searchFocused" class="search-recent flex flex-col items-center bg-white mt-10">
             <span class="triangle"></span>
             <div class="w-full flex justify-start bg-white rounded-t-md pt-4">
             <p v-if="loaderAnim == false" class="ml-4 font-semibold">Récent</p>
-            </div>
+          </div>
             <div class="w-full h-full justify-center items-center flex">
               <img v-if="loaderAnim" class="w-5 animate-spin" src="../assets/svg\insta/svgexport-14.svg" alt="">
               <p v-else class="text-sm text-gray-400 font-semibold">Aucune recherche récente.</p>
-            </div>
           </div>
+      </div>
 
   <div v-if="searchFocused" @click="searchFocused = false" class="invisibleDiv"></div>
   <div v-if="notificationIco" @click="notificationIco = false" class="invisibleDiv"></div>
@@ -44,6 +44,7 @@
     </div>
   </div>
       </div>
+
       <div class="container-nav flex justify-between items-center">
         <router-link to="/">
           <img v-if="$route.name == 'Home' && notificationIco == false && addContentIco == false && profileIco == false" :src="require(`../assets/svg/insta/svgexport-${15}.svg`)" alt="logo">
@@ -102,8 +103,28 @@
                 <circle cx="29" cy="21" r="14" fill="none" stroke="url(#test)"/>
               </svg>
           <img class="rounded-full" :src="require(`../assets/user.jpg`)" alt="logo">
-          <div v-if="profileIco" class="profileTab flex flex-col items-center bg-white mt-10 absolute">
+
+          <div v-if="profileIco" class="profileTab flex flex-col items-center bg-white mt-3 -right-5 absolute z-15">
             <span class="triangle3"></span>
+            <div class="profilTab-content1 flex items-center w-full hover:bg-gray-100 z-15 relative">
+              <img class="mx-4 my-2" :src="require(`../assets/svg/insta/svgexport-${28}.svg`)" alt="">
+              <p>Profile</p>
+            </div>
+            <div class="profilTab-content2 flex items-center w-full">
+              <img class="mx-4 my-2" :src="require(`../assets/svg/insta/svgexport-${31}.svg`)" alt="">
+              <p>Enregistré</p>
+            </div>
+            <div class="profilTab-content3 flex items-center w-full">
+              <img class="mx-4 my-2" :src="require(`../assets/svg/insta/svgexport-${30}.svg`)" alt="">
+              <p>Paramètres</p>
+            </div>
+            <div class="profilTab-content4 flex items-center w-full">
+              <img class="mx-4 my-2" :src="require(`../assets/svg/insta/svgexport-${29}.svg`)" alt="">
+              <p>Changer de compte</p>
+            </div>
+            <div class="flex justify-start w-full border-t">
+              <p class="mx-4 my-2">Déconnection</p>
+            </div>
           </div>
         </div>
 
@@ -304,14 +325,7 @@ export default {
     border-radius: 5px;
     z-index: 11;
   }
-  .profileTab{
-    width: 500px;
-    height: 250px;
-    box-shadow: 0 0 5px 1px rgba(var(--jb7,0,0,0),.0975);
-    border-radius: 5px;
-    z-index: 11;
-  }
-    .triangle2{
+  .triangle2{
     position: absolute;
     z-index: -1;
     background: #fff;
@@ -321,17 +335,32 @@ export default {
     left: 422px;
     box-shadow: 0 0 5px 1px rgba(var(--jb7,0,0,0),.0975);
     transform: rotate(45deg);
+  }
+  .profileTab{
+      width: 230px;
+      height: 194px;
+      box-shadow: 0 0 5px 1px rgba(var(--jb7,0,0,0),.0975);
+      border-radius: 5px;
+  }
+
+  .profileTab img {
+    width: 15px;
+  }
+  .profileTab p {
+    font-size: 14px;
+    color: rgb(49, 49, 49);
+    font-weight: 400;
   }
   .triangle3{
     position: absolute;
-    z-index: -1;
     background: #fff;
     width: 14px;
     height: 14px;
     top: -5px;
-    left: 422px;
-    box-shadow: 0 0 5px 1px rgba(var(--jb7,0,0,0),.0975);
+    left: 192px;
+    /* box-shadow: 0 0 5px 1px rgba(var(--jb7,0,0,0),.0975); */
     transform: rotate(45deg);
+    z-index: 10;
   }
 
   .modalDiv{
