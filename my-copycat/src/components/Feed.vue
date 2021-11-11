@@ -35,13 +35,13 @@
             </div>
             <img class="mr-5 cursor-pointer" src="../assets/svg/insta/svgexport-1.svg" alt="dots">
           </div>
-          <div @dblclick="publi.liked = !publi.liked, publi.liked2 = !publi.liked2" class="media flex justify-center items-center">
+          <div @dblclick="publi.liked = !publi.liked, publi.liked2 = !publi.liked2, publi.liked ? publi.likes++ : publi.likes--" class="media flex justify-center items-center">
             <img src="../assets/costa-rica.jpg" alt="image">
             <img v-if="publi.liked2" :class="{likeAnimation2 : publi.liked2}" class="opacity-0 absolute w-28 blur-lg" src="../assets/heart.png" alt="heart">
           </div>
           <div class="publication-buttons flex justify-between">
             <div class="like-com-fav flex w-full">
-              <div @click="publi.liked = !publi.liked" class="flex justify-center">
+              <div @click="publi.liked = !publi.liked, publi.liked ? publi.likes++ : publi.likes--" class="flex justify-center">
                 <img v-if="publi.liked == false" class="btns" src="../assets/svg/insta/svgexport-3.svg" alt="logo">
                 <img v-else :class="{likeAnimation : publi.liked}" src="../assets/svg/insta/svgexport-25.svg" alt="logo">
               </div>
