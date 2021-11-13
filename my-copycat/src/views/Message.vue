@@ -1,7 +1,7 @@
 <template>
   <div class="main-container w-full h-screen flex justify-center items-center">
     <Header class="absolute top-0"/>
-    <div class="container-content flex relative mt-10 border border-border-primary rounded-md">
+    <div class="container-content flex relative mt-40  border border-border-primary rounded-md">
 
       <div class="left border-r border-border-primary flex flex-col items-center">
         <div class="myUsername flex w-full justify-between items-center border-b">
@@ -42,7 +42,7 @@
       </div>
 
       <div  class="right flex justify-center items-center">
-        <Conversation v-if="true"/>
+        <Conversation v-if="false"/>
         <div v-if="principal" class="general flex flex-col w-full justify-center items-center">
           <svg class="w-32 absolute h-32" viewbox="0 0 100 100">
                 <defs>
@@ -59,7 +59,7 @@
         <button class="font-semibold mt-6">Envoyer un message</button>
         </div>
 
-        <div v-if="principal " class="flex flex-col w-full justify-center items-center">
+        <div v-if="principal == false" class="flex flex-col w-full justify-center items-center">
           <svg class="w-32 absolute h-32" viewbox="0 0 100 100">
                 <defs>
                   <linearGradient id="test" x1="0%" y1="35%" x2="35%" y2="0%">
