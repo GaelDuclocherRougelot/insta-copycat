@@ -1,7 +1,7 @@
 <template>
   <div class="main-container w-full h-screen flex justify-center items-center">
     <Header class="absolute top-0"/>
-    <div class="container-content flex relative mt-40  border border-border-primary rounded-md">
+    <div class="container-content flex relative mt-40 border border-border-primary rounded-md">
 
       <div class="left border-r border-border-primary flex flex-col items-center">
         <div class="myUsername flex w-full justify-between items-center border-b">
@@ -41,9 +41,9 @@
         </div>
       </div>
 
-      <div  class="right flex justify-center items-center">
+      <div  class="right w-full flex justify-center items-center">
         <Conversation v-if="false"/>
-        <div v-if="principal" class="general flex flex-col w-full justify-center items-center">
+        <div v-if="principal" class="principal flex flex-col justify-center items-center">
           <svg class="w-32 absolute h-32" viewbox="0 0 100 100">
                 <defs>
                   <linearGradient id="test" x1="0%" y1="35%" x2="35%" y2="0%">
@@ -90,7 +90,7 @@ export default {
   },
   data() {
     return {
-      principal: false,
+      principal: true,
     };
   },
 };
@@ -106,7 +106,7 @@ export default {
     background: white;
   }
   .left{
-    width: 350px;
+    min-width: 350px;
     height: 881px;
   }
   .left .myUsername{
@@ -157,7 +157,11 @@ export default {
     top: 300px;
   }
 
-  .right .general {
-    width: 583px;
+  .right .principal {
+    max-width: 583px;
   }
+  .principal p {
+    width: 100%;
+    text-align: center;
+  } 
 </style>
