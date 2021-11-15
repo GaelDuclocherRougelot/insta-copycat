@@ -22,17 +22,20 @@
         </div>
 
         <div v-if="principal" class="usersList-principal flex flex-col w-full">
-          <div class="user mt-4 w-full flex items-center hover:bg-gray-50 cursor-pointer">
+          <div v-for="(user, index) in this.users" :key="index" class="user mt-4 w-full flex items-center hover:bg-gray-50 cursor-pointer">
             <img class="rounded-full w-14 ml-3" src="../assets/user.jpg" alt="profile picture">
+            <span class="" :class="{online : user.isOnline}"></span>
             <div class="username-time flex flex-col">
-              <p class="text-sm font-light ml-3">pseudoo5461</p>
-              <p class="text-sm font-light ml-3 text-gray-400">En ligne il y a 12min</p>
+              <p class="text-sm font-light ml-3">{{user.username}}</p>
+              <p v-if="user.isOnline" class="text-sm font-light ml-3 text-gray-400">En ligne</p>
+              <p v-else class="text-sm font-light ml-3 text-gray-400">{{user.wasOnline}}</p>
             </div>
           </div>
         </div>
         <div v-else class="usersList-general flex flex-col w-full">
           <div class="user mt-4 w-full flex items-center hover:bg-gray-50 cursor-pointer">
             <img class="rounded-full w-14 ml-3" src="../assets/user.jpg" alt="profile picture">
+            <span class="online"></span>
             <div class="username-time flex flex-col">
               <p class="text-sm font-light ml-3">trololo</p>
               <p class="text-sm font-light ml-3 text-gray-400">En ligne</p>
@@ -91,6 +94,26 @@ export default {
   data() {
     return {
       principal: true,
+      users: [
+        {
+          username: 'Doe248752',
+          isOnline: true,
+          wasOnline: 'En ligne il y a 5 min',
+          picture: '',
+        },
+        {
+          username: 'victor3563',
+          isOnline: false,
+          wasOnline: 'En ligne il y a 3 min',
+          picture: '',
+        },
+        {
+          username: 'mark.zukerberg',
+          isOnline: false,
+          wasOnline: 'En ligne il y a 4 heures',
+          picture: '',
+        },
+      ],
     };
   },
 };
@@ -128,6 +151,17 @@ export default {
     border-bottom: 1px solid #000;
     color: black;
     transition: all 0.5s linear;
+  }
+
+  .left .online {
+    width: 20px;
+    height: 20px;
+    border: solid 3px white;
+    border-radius: 50%;
+    background-color: rgb(94, 222, 2);
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 30px;
   }
 
   .right {

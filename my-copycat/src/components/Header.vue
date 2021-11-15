@@ -122,7 +122,7 @@
               <p>Changer de compte</p>
             </div>
             <div class="flex justify-start w-full border-t">
-              <p class="mx-4 my-2">Déconnection</p>
+              <p class="mx-4 my-2">Déconnexion</p>
             </div>
           </div>
         </div>
