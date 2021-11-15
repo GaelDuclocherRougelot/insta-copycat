@@ -58,7 +58,7 @@
           
           <div class="publi-desc mt-2">
             <span class="ml-3 text-sm font-semibold text-gray-800 hover:underline cursor-pointer">{{publi.username}}</span>
-            <p class="ml-3 text-sm">{{publi.title}}</p>
+            <p class="ml-2 text-sm">{{publi.title}}</p>
           </div>
 
           <p v-if="publi.comments !== ''" class="bg-white ml-3 mt-1 text-sm text-gray-500 cursor-pointer">Afficher les {{publi.comments}} commentaires</p>
@@ -98,10 +98,10 @@
         <span class="ml-12 text-xs font-medium cursor-pointer text-gray-700">Voir tout</span>
         </div>
 
-        <div v-for="(user, index) in usersForyou" :key="index" class="users-foryou flex w-96 h-8 items-center mt-5">
+        <div v-for="(user, index) in this.usersForyou" :key="index" class="users-foryou flex w-96 h-8 items-center mt-5">
           <img class="rounded-full w-9 cursor-pointer" src="../assets/user.jpg" alt="My picture">
           <div class="me flex flex-col ml-4 w-44">
-            <p class="font-semibold text-sm text-gray-700 cursor-pointer hover:underline">duclocherrougelot</p>
+            <p class="font-semibold text-sm text-gray-700 cursor-pointer hover:underline">{{user.username}}</p>
             <span class="text-gray-400 text-xs">Vous suit</span>
           </div>
           <span class="foryou-blue-span text-xs cursor-pointer font-medium">S'abonner</span>
@@ -132,15 +132,25 @@ export default {
     return {
       scrollStorys: false,
       usersForyou: [
-        {},
-        {},
-        {},
-        {},
-        {},
+        {
+          username: 'ravenclawpilchard',
+        },
+        {
+          username: 'rontulip',
+        },
+        {
+          username: 'morganabasalt',
+        },
+        {
+          username: 'krumtinkle',
+        },
+        {
+          username: 'aurordisastrous',
+        },
       ],
       storys: [
         {
-          username: 'duclocherrougelot',
+          username: 'aurordisastrous',
           img: 'user',
           storyId: 0,
           animation: false,
@@ -190,9 +200,9 @@ export default {
       ],
       publications: [
         {
-          username: 'duclocherrougelot',
-          likes: 1000,
-          title: 'Amazing !',
+          username: 'krumtinkle',
+          likes: 353,
+          title: 'Costa rica <3',
           comments: '8',
           time: '3',
           liked: false,
@@ -202,8 +212,8 @@ export default {
           fav: false,
         },
         {
-          username: 'duclocherrougelot',
-          likes: 1000,
+          username: 'ravenclawpilchard',
+          likes: 54,
           title: 'Amazing !',
           comments: '5',
           time: '6',
@@ -214,8 +224,8 @@ export default {
           fav: false,
         },
         {
-          username: 'duclocherrougelot',
-          likes: 1000,
+          username: 'rontulip',
+          likes: 242,
           title: 'Amazing !',
           comments: '10',
           time: '12',
