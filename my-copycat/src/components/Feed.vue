@@ -36,7 +36,7 @@
             <img class="mr-5 cursor-pointer" src="../assets/svg/insta/svgexport-1.svg" alt="dots">
           </div>
           <div @dblclick="publi.liked = !publi.liked, publi.liked2 = !publi.liked2, publi.liked ? publi.likes++ : publi.likes--" class="media flex justify-center items-center">
-            <img src="../assets/costa-rica.jpg" alt="image">
+            <img class="userPublication" :src="require(`../assets/${publi.source}.jpg`)" alt="image">
             <img v-if="publi.liked2" :class="{likeAnimation2 : publi.liked2}" class="opacity-0 absolute w-28 blur-lg" src="../assets/heart.png" alt="heart">
           </div>
           <div class="publication-buttons flex justify-between">
@@ -202,7 +202,7 @@ export default {
         {
           username: 'krumtinkle',
           likes: 353,
-          title: 'Costa rica <3',
+          title: 'This trip was insane !',
           comments: '8',
           time: '3',
           liked: false,
@@ -210,11 +210,12 @@ export default {
           comment: '',
           commentLiked: false,
           fav: false,
+          source: 'montagne',
         },
         {
           username: 'ravenclawpilchard',
           likes: 54,
-          title: 'Amazing !',
+          title: 'Costa-rica ❤',
           comments: '5',
           time: '6',
           liked: false,
@@ -222,11 +223,12 @@ export default {
           comment: '',
           commentLiked: false,
           fav: false,
+          source: 'costa-rica',
         },
         {
           username: 'rontulip',
           likes: 242,
-          title: 'Amazing !',
+          title: 'Amazing ! 😍',
           comments: '10',
           time: '12',
           liked: false,
@@ -234,6 +236,7 @@ export default {
           comment: '',
           commentLiked: false,
           fav: false,
+          source: 'sea',
         },
       ],
     };
@@ -283,6 +286,11 @@ export default {
     max-height: 767px;
     max-width: 614px;
     height: 100%;
+    width: 100%;
+  }
+  .media .userPublication {
+    max-height: 767px;
+    max-width: 614px;
     width: 100%;
   }
 

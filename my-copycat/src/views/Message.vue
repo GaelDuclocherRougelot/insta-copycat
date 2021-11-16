@@ -125,7 +125,7 @@ export default {
   .container-content {
     width: 935px;
     max-width: 935px;
-    height: 881px;
+    height: 100%;
     background: white;
   }
   .left{
