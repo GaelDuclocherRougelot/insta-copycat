@@ -279,7 +279,6 @@ export default {
     padding-bottom: 10px;
     text-overflow: ellipsis;
     display: flex;
-    width: 500px;
   }
 
   .media {
@@ -453,5 +452,15 @@ filter: sepia(100%) brightness(200%) saturate(0%) contrast(106%) invert(6%);
   }
   .svgAnim{
     animation:loading 3500ms ease-in-out 2 alternate;
+  }
+
+  @media (max-width: 630px){
+    .container-storys{
+      margin-top: 0;
+    }
+    .publication{
+      border-right: none;
+      border-left: none;
+    }
   }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div class="header flex justify-center items-center border-b border-border-primary bg-white">
     <div class="container flex justify-between items-center px-5 w-full">
+      <img class="p-3" src="../assets/svg\insta/photo.svg" alt="photo icon">
       <div class="container-img flex justify-between items-center">
         <router-link to="/">
           <!-- <img class="mt-2" src="../assets/logo.png" alt="instagram logo"> -->
@@ -45,7 +46,7 @@
       </div>
 
       <div class="container-nav flex justify-between items-center">
-        <router-link to="/">
+        <router-link to="/" class="phoneVersionActive">
           <img v-if="$route.name == 'Home' && notificationIco == false && addContentIco == false && profileIco == false" :src="require(`../assets/svg/insta/svgexport-${15}.svg`)" alt="logo">
           <img v-else :src="require(`../assets/svg/insta/svgexport-${20}.svg`)" alt="logo">
         </router-link>
@@ -55,17 +56,17 @@
           <img v-else :src="require(`../assets/svg/insta/svgexport-${7}.svg`)" alt="logo">
         </router-link>
         
-        <div class="cursor-pointer" @click="addContentIco = !addContentIco">
+        <div class="cursor-pointer phoneVersionActive" @click="addContentIco = !addContentIco">
           <img v-if="addContentIco == false" :src="require(`../assets/svg/insta/svgexport-${24}.svg`)" alt="logo">
           <img v-else :src="require(`../assets/svg/insta/svgexport-${26}.svg`)" alt="logo">
         </div>
 
-        <router-link to="explorer">
+        <router-link to="explorer" class="phoneVersionActive">
           <img v-if="$route.name == 'Explorer' && notificationIco == false && addContentIco == false && profileIco == false" :src="require(`../assets/svg/insta/svgexport-${23}.svg`)" alt="logo">
           <img v-else :src="require(`../assets/svg/insta/svgexport-${17}.svg`)" alt="logo">
         </router-link>
 
-        <div @click="notificationIco = !notificationIco, loaderAnimation()" class="cursor-pointer">
+        <div @click="notificationIco = !notificationIco, loaderAnimation()" class="cursor-pointer phoneVersionActive">
           <img v-if="notificationIco == false" :src="require(`../assets/svg/insta/svgexport-${3}.svg`)" alt="logo">
           <img v-else :src="require(`../assets/svg/insta/svgexport-${22}.svg`)" alt="logo">
 
@@ -91,7 +92,7 @@
           </div>
         </div>
 
-        <div @click="profileIco = !profileIco" class="cursor-pointer">
+        <div @click="profileIco = !profileIco" class="cursor-pointer phoneVersionActive">
           <svg v-if="profileIco" class="w-20 absolute top-0 -right-10" viewbox="0 0 100 100">
                 <defs>
                   <linearGradient id="test" x1="0%" y1="50%" x2="50%" y2="0%">
@@ -408,5 +409,28 @@ export default {
   }
   .modaldiv-dropzone h2{
     font-size: 22px;
+  }
+
+  @media (max-width: 400px){
+    .phoneVersionActive{
+      display: none;
+    }
+    .container{
+      justify-content: center;
+    }
+    .container-nav{
+      width: 30px;
+      min-width: 50px;
+      justify-content: center;
+      padding: 0;
+    }
+    .container-img{
+      justify-content: center;
+      margin-left: 33px;
+      margin-right: 30px;
+    }
+    .header{
+      width: 100vw;
+    }
   }
 </style>
