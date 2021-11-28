@@ -1,11 +1,11 @@
 <template>
   <div class="header flex justify-center items-center border-b border-border-primary bg-white">
     <div class="container flex justify-between items-center px-5 w-full">
-      <img class="p-3" src="../assets/svg\insta/photo.svg" alt="photo icon">
+      <img class="p-3 photo-icon" src="../assets/svg\insta/photo.svg" alt="photo icon">
       <div class="container-img flex justify-between items-center">
         <router-link to="/">
-          <!-- <img class="mt-2" src="../assets/logo.png" alt="instagram logo"> -->
-          <span class="text-xl">𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓸𝓸𝓶</span>
+          <img class="mt-2" src="../assets/logo.png" alt="instagram logo">
+          <!-- <span class="text-xl">𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓸𝓸𝓶</span> -->
         </router-link>
       </div>
       <div class="container-search flex flex-col items-center ml-10">
@@ -411,7 +411,11 @@ export default {
     font-size: 22px;
   }
 
-  @media (max-width: 400px){
+  .photo-icon{
+    display: none;
+  }
+
+  @media (max-width: 415px){
     .phoneVersionActive{
       display: none;
     }
@@ -431,6 +435,9 @@ export default {
     }
     .header{
       width: 100vw;
+    }
+    .photo-icon{
+      display: block;
     }
   }
 </style>

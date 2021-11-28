@@ -3,8 +3,8 @@
     <div class="container-feed flex flex-col items-end">
 
       <div class="container-storys bg-white border border-border-primary mt-8 rounded-sm">
-        <button v-if="scrollStorys" @click="scrollStorys = false" class="text-gray-700 rotate absolute left-0 z-10 font-semibold text-2xl rounded-full mt-3"><span>></span></button>
-        <button v-show="scrollStorys == false" @click="scrollStorys = true" class="text-gray-700 absolute rounded-full right-0 z-10 font-semibold text-2xl"><span>></span></button>
+        <button v-if="scrollStorys" @click="scrollStorys = false" class="text-gray-700 rotate absolute left-0 z-10 font-semibold text-2xl rounded-full mt-3 activeArrows"><span>></span></button>
+        <button v-show="scrollStorys == false" @click="scrollStorys = true" class="text-gray-700 absolute rounded-full right-0 z-10 font-semibold text-2xl activeArrows"><span>></span></button>
         <div class="storys flex" :class="{storysScroll:scrollStorys}">
           <div @click="story.animation = true" v-for="(story, index) in storys" :key="index" 
           class="story flex flex-col items-center cursor-pointer m-2">
@@ -457,10 +457,15 @@ filter: sepia(100%) brightness(200%) saturate(0%) contrast(106%) invert(6%);
   @media (max-width: 630px){
     .container-storys{
       margin-top: 0;
+    overflow-x: scroll;
     }
     .publication{
-      border-right: none;
-      border-left: none;
+      border: none;
+      margin-top: 0;
+
+    }
+    .activeArrows{
+      display: none;
     }
   }
 </style>
