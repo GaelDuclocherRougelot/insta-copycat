@@ -1,14 +1,7 @@
 <template>
-  <div class="header flex justify-center items-center border-b border-border-primary bg-white">
-    <div class="container flex justify-between px-5 items-center w-full">
-      <img class="p-3 photo-icon" src="../assets/svg\insta/photo.svg" alt="photo icon">
-      <div class="container-img flex justify-between items-center">
-        <router-link to="/">
-          <img class="mt-1" src="../assets/logo.png" alt="instagram logo">
-          <!-- <span class="text-xl">𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓸𝓸𝓶</span> -->
-        </router-link>
-      </div>
-      <div class="container-search flex flex-col items-center ml-10">
+  <div class="footer flex bg-white">
+    <div class="container flex justify-center items-center px-5 w-full">
+      <div class="container-search flex items-center ml-10">
         <input @click="searchFocused = true, loaderAnimation()" @keydown="loaderAnimation()" v-model="rechercherIsActive" type="text" class="border border-border-primary w-full h-7 rounded-sm">
         <div class="search-span">
           <img :class="{searchImgActive : searchFocused}" class="img-search w-3" src="../assets/svg\insta/search.svg" alt="search icon">
@@ -45,54 +38,28 @@
   </div>
       </div>
 
-      <div class="container-nav flex justify-between items-center">
-        <router-link to="/" class="phoneVersionActive">
+      <div class="container-nav flex justify-around items-center">
+        <router-link to="/">
           <img v-if="$route.name == 'Home' && notificationIco == false && addContentIco == false && profileIco == false" :src="require(`../assets/svg/insta/svgexport-${15}.svg`)" alt="logo">
           <img v-else :src="require(`../assets/svg/insta/svgexport-${20}.svg`)" alt="logo">
         </router-link>
         
-        <router-link to="/message">
-          <img v-if="$route.name == 'Message' && notificationIco == false && addContentIco == false && profileIco == false" :src="require(`../assets/svg/insta/svgexport-${21}.svg`)" alt="logo">
-          <img v-else :src="require(`../assets/svg/insta/svgexport-${7}.svg`)" alt="logo">
+        <router-link to="explorer">
+          <img v-if="$route.name == 'Explorer' && notificationIco == false && addContentIco == false && profileIco == false" :src="require(`../assets/svg/insta/footer-search-bold.svg`)" alt="logo">
+          <img v-else :src="require(`../assets/svg/insta/footer-search.svg`)" alt="logo">
         </router-link>
-        
-        <div class="cursor-pointer phoneVersionActive" @click="addContentIco = !addContentIco">
+
+        <div class="cursor-pointer" @click="addContentIco = !addContentIco">
           <img v-if="addContentIco == false" :src="require(`../assets/svg/insta/svgexport-${24}.svg`)" alt="logo">
           <img v-else :src="require(`../assets/svg/insta/svgexport-${26}.svg`)" alt="logo">
         </div>
 
-        <router-link to="explorer" class="phoneVersionActive">
-          <img v-if="$route.name == 'Explorer' && notificationIco == false && addContentIco == false && profileIco == false" :src="require(`../assets/svg/insta/svgexport-${23}.svg`)" alt="logo">
-          <img v-else :src="require(`../assets/svg/insta/svgexport-${17}.svg`)" alt="logo">
-        </router-link>
-
-        <div @click="notificationIco = !notificationIco, loaderAnimation()" class="cursor-pointer phoneVersionActive">
+        <div @click="notificationIco = !notificationIco, loaderAnimation()" class="cursor-pointer">
           <img v-if="notificationIco == false" :src="require(`../assets/svg/insta/svgexport-${3}.svg`)" alt="logo">
           <img v-else :src="require(`../assets/svg/insta/svgexport-${22}.svg`)" alt="logo">
-
-          <div v-if="notificationIco" class="notificationTab flex flex-col items-center bg-white top-19 mt-3 -right-4 absolute">
-            <span v-if="loaderAnim == false" class="triangle2"></span>
-            <div class="flex flex-col items-center bg-white rounded-t-md z-11 relative">
-              <img v-if="loaderAnim" class="w-10 my-10 animate-spin" src="../assets/svg\insta/svgexport-14.svg" alt="">
-            <div v-else class="w-full h-full justify-center items-center flex flex-col pb-5">
-              <svg class="w-20 mt-4" viewbox="0 0 100 100">
-                <defs>
-                  <linearGradient id="test" x1="0%" y1="35%" x2="35%" y2="0%">
-                    <stop offset="0%" stop-color="#000"/>
-                    <stop offset="100%" stop-color="#000"/>
-                  </linearGradient>
-                </defs>
-                <circle cx="40" cy="75" r="39" fill="none" stroke="url(#test)"/>
-              </svg>
-              <img :src="require(`../assets/svg/insta/svgexport-${3}.svg`)" class="absolute top-20">
-              <p  class="text-sm -mt-5">Activité sur vos publications</p>
-              <p  class="text-sm mt-3 pb-5">Lorsque quelqu’un aime ou commente une de vos publications, vous le voyez ici.</p>
-            </div>
-            </div>
-          </div>
         </div>
 
-        <div @click="profileIco = !profileIco" class="cursor-pointer phoneVersionActive">
+        <div @click="profileIco = !profileIco" class="cursor-pointer">
           <svg v-if="profileIco" class="w-20 absolute top-0 -right-10" viewbox="0 0 100 100">
                 <defs>
                   <linearGradient id="test" x1="0%" y1="50%" x2="50%" y2="0%">
@@ -103,29 +70,6 @@
                 <circle cx="29" cy="21" r="14" fill="none" stroke="url(#test)"/>
               </svg>
           <img class="rounded-full" :src="require(`../assets/user.jpg`)" alt="logo">
-
-          <div v-if="profileIco" class="profileTab flex flex-col items-center bg-white mt-3 -right-5 absolute z-15">
-            <span class="triangle3"></span>
-            <div class="profilTab-content1 flex items-center w-full hover:bg-gray-100 z-15 relative">
-              <img class="mx-4 my-2" :src="require(`../assets/svg/insta/svgexport-${28}.svg`)" alt="">
-              <p>Profile</p>
-            </div>
-            <div class="profilTab-content2 flex items-center w-full">
-              <img class="mx-4 my-2" :src="require(`../assets/svg/insta/svgexport-${31}.svg`)" alt="">
-              <p>Enregistré</p>
-            </div>
-            <div class="profilTab-content3 flex items-center w-full">
-              <img class="mx-4 my-2" :src="require(`../assets/svg/insta/svgexport-${30}.svg`)" alt="">
-              <p>Paramètres</p>
-            </div>
-            <div class="profilTab-content4 flex items-center w-full">
-              <img class="mx-4 my-2" :src="require(`../assets/svg/insta/svgexport-${29}.svg`)" alt="">
-              <p>Changer de compte</p>
-            </div>
-            <div class="flex justify-start w-full border-t">
-              <p class="mx-4 my-2">Déconnexion</p>
-            </div>
-          </div>
         </div>
 
       </div>
@@ -134,7 +78,7 @@
 </template>
 <script>
 export default {
-  name: 'Header',
+  name: 'Footer',
   data() {
     return {
       rechercherIsActive: '',
@@ -165,18 +109,21 @@ export default {
 <style scoped>
   @import url(//db.onlinewebfonts.com/c/6d32b8e06f40fb7698cfb714b9e7975d?family=BillabongW00-Regular);
 
-  .header{
-    height: 54px;
+  .footer{
+    height: 45px;
     width: 100%;
     position: fixed;
     z-index: 20;
+    bottom: -1px;
+    display: none;
+    border-top: 1px solid rgb(226, 225, 225);
   }
   .container{
     max-width: 975px;
     min-width: auto;
   }
   .container-img{
-    height: 36px;
+    height: 50px;
     width: 228px;
   }
   .container-img img{
@@ -251,7 +198,7 @@ export default {
   }
   /* NAV */
   .container-nav{
-    width: 270px;
+    width: 100%;
     min-width: 222px;
     height: 42px;
     word-spacing: 0px;
@@ -261,8 +208,8 @@ export default {
     position: relative;
   }
   .container-nav img {
-    width: 22px;
-    height: 22px;
+    width: 25px;
+    height: 25px;
   }
   .container-nav a{
     cursor: pointer;
@@ -416,18 +363,15 @@ export default {
   }
 
   @media (max-width: 541px){
-    .phoneVersionActive{
-      display: none;
+    .footer{
+      display: block;
     }
     .container{
-      justify-content: space-between;
-      padding-left: 0px;
-      padding-right: 0px;
+      justify-content: center;
     }
     .container-nav{
-      width: 30px;
       min-width: 50px;
-      justify-content: center;
+      justify-content: space-between;
       padding: 0;
     }
     .container-img{
@@ -437,7 +381,6 @@ export default {
     }
     .header{
       width: 100vw;
-      height: 45px;
     }
     .photo-icon{
       display: block;

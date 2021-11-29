@@ -1,17 +1,28 @@
 <template lang="">
   <div>
     <Header/>
+    <Footer class="footer"/>
   </div>
 </template>
 <script>
 import Header from '../components/Header.vue';
+import Footer from '../components/Footer.vue';
 
 export default {
   components: {
     Header,
+    Footer,
   },
 };
 </script>
-<style lang="">
-  
+<style scoped>
+  .footer {
+    display: none;
+  }
+
+  @media (max-width: 415px) {
+    .footer {
+      display: block;
+    }
+  }
 </style>

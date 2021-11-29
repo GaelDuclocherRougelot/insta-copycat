@@ -150,7 +150,7 @@ export default {
       ],
       storys: [
         {
-          username: 'aurordisastrous',
+          username: 'Votre story',
           img: 'user',
           storyId: 0,
           animation: false,
@@ -407,6 +407,7 @@ filter: sepia(100%) brightness(200%) saturate(0%) contrast(106%) invert(6%);
     position: relative;
     max-width: 100%;
     overflow: hidden;
+    background-color: #fafafa;
   }
   .container-storys .rotate{
     transform: rotate(180deg)
@@ -427,6 +428,12 @@ filter: sepia(100%) brightness(200%) saturate(0%) contrast(106%) invert(6%);
     transform: translateX(-80px);
     transition: all 0.5s ease;
   }
+  .container-storys::-webkit-scrollbar { 
+    width: 0px !important;
+    height: 0px;
+    visibility: hidden;
+  };
+
   .story-imgs {
   width:70px;
   height:80px;
@@ -456,13 +463,20 @@ filter: sepia(100%) brightness(200%) saturate(0%) contrast(106%) invert(6%);
 
   @media (max-width: 630px){
     .container-storys{
-      margin-top: 0;
-    overflow-x: scroll;
+      margin-top: -10px;
+      overflow-x: scroll;
+      min-height: 100px;
+      height: 100px;
+    }
+    .storys{
+      margin-top: 10px;
+    }
+    .publications{
+      margin-bottom: 40px;
     }
     .publication{
       border: none;
       margin-top: 0;
-
     }
     .activeArrows{
       display: none;

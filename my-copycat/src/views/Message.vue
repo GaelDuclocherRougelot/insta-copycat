@@ -1,6 +1,6 @@
 <template>
   <div class="main-container w-full h-screen flex justify-center items-center">
-    <Header class="absolute top-0"/>
+    <Header class="header absolute top-0"/>
     <div class="container-content flex relative mt-40 border border-border-primary rounded-md">
 
       <div class="left border-r border-border-primary flex flex-col items-center">
@@ -119,6 +119,9 @@ export default {
 };
 </script>
 <style scoped>
+  .header {
+    display: block;
+  }
   .main-container {
     height: 100.1vh;
   }
@@ -167,6 +170,7 @@ export default {
   .right {
     max-width: 583px;
     height: 879px;
+    display: block;
   }
 
   .right h1 {
@@ -198,4 +202,22 @@ export default {
     width: 100%;
     text-align: center;
   } 
+
+  @media (max-width: 640px){
+    .container-content{
+      margin: 0px;
+    }
+    .right{
+      display: none;
+    }
+    .left{
+      width: 100%;
+    }
+    .header{
+      display: none;
+    }
+    .principal-general{
+      display: none;
+    }
+  }
 </style>
