@@ -463,10 +463,10 @@ filter: sepia(100%) brightness(200%) saturate(0%) contrast(106%) invert(6%);
 
   @media (max-width: 630px){
     .container-storys{
-      margin-top: -10px;
+      margin-top: -20px;
       overflow-x: scroll;
       min-height: 100px;
-      height: 100px;
+      height: 120px;
     }
     .storys{
       margin-top: 10px;
