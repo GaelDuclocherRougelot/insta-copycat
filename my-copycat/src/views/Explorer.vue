@@ -1,5 +1,5 @@
-<template lang="">
-  <div>
+<template>
+  <div class="container">
     <Header/>
     <ExplorerComp/>
     <Footer id="footer"/>
@@ -7,14 +7,15 @@
 </template>
 <script>
 import Header from '../components/Header.vue';
-import Footer from '../components/Footer.vue';
 import ExplorerComp from '../components/ExplorerComp.vue';
+import Footer from '../components/Footer.vue';
 
 export default {
+  name: 'Explorer',
   components: {
     Header,
-    Footer,
     ExplorerComp,
+    Footer,
   },
 };
 </script>
@@ -23,5 +24,9 @@ export default {
     #footer {
       display: block;
     }
+  }
+  .container{
+    width: 100%;
+    height: 100%;
   }
 </style>
