@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import Message from '../views/Message.vue';
 import Explorer from '../views/Explorer.vue';
+import Activity from '../views/Activity.vue';
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/explorer',
     name: 'Explorer',
     component: Explorer,
+  },
+  {
+    path: '/activity',
+    name: 'Activity',
+    component: Activity,
   },
 ];
 

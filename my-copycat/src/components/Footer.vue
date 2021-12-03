@@ -54,11 +54,11 @@
           <img v-else :src="require(`../assets/svg/insta/svgexport-${26}.svg`)" alt="logo">
         </div>
 
-        <div @click="notificationIco = !notificationIco, loaderAnimation()" class="cursor-pointer">
-          <img v-if="notificationIco == false" :src="require(`../assets/svg/insta/svgexport-${3}.svg`)" alt="logo">
-          <img v-else :src="require(`../assets/svg/insta/svgexport-${22}.svg`)" alt="logo">
-        </div>
-
+        <router-link to="activity">
+          <img v-if="$route.name == 'Activity' && notificationIco == false && addContentIco == false && profileIco == false" :src="require(`../assets/svg/insta/svgexport-${22}.svg`)" alt="logo">
+          <img v-else :src="require(`../assets/svg/insta/svgexport-${3}.svg`)" alt="logo">
+        </router-link>
+        
         <div @click="profileIco = !profileIco" class="cursor-pointer">
           <svg v-if="profileIco" class="w-20 absolute top-0 -right-10" viewbox="0 0 100 100">
                 <defs>

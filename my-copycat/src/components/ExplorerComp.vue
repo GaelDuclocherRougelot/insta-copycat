@@ -77,12 +77,12 @@ export default {};
 .content-container {
   max-width: 975px;
   width: 100%;
-  margin-top: 85px;
+  margin-top: 82px;
   display: flex;
   flex-direction: column;
 }
 
-/* IMAGE CONTAINERS*/
+/* IMAGE PROPERTIES */
 .div_large_right {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -90,23 +90,25 @@ export default {};
   grid-column-gap: 28px;
   grid-row-gap: 28px;
   width: 100%;
+  height: 100%;
   max-height: 641.98px;
   max-width: 963px;
-  height: 100%;
   margin-bottom: 28px;
 }
 
 .div1 {
   grid-area: 1 / 1 / 3 / 2;
-  background: #000;
+  background: rgb(133, 133, 133);
 }
 .div2 {
   grid-area: 3 / 1 / 5 / 2;
-  background: #000;
+  background: rgb(133, 133, 133);
+
 }
 .div3 {
   grid-area: 1 / 2 / 5 / 4;
-  background: #000;
+  background: rgb(133, 133, 133);
+;
 }
 
 .div_large_left {
@@ -131,33 +133,25 @@ export default {};
   flex-wrap: wrap;
 }
 
-/* IMAGE PROPERTIES */
-/* Base properties */
-.small_imgs {
-  max-width: 292.98px;
-  max-height: 292.98px;
-  height: 100%;
-  width: 100%;
-  background: rgb(189, 187, 187);
+@media (max-width:768px) {
+  .content-container{
+    height: 450px;
+    margin-top: 60px;
+  }
+  .div_large_right{
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
+  }
 }
-.large_imgs {
-  max-width: 613.98px;
-  max-height: 613.98px;
-  height: 100%;
-  width: 100%;
-  background: rgb(189, 187, 187);
-}
-/* Modif large img left or Right */
-.left_small {
-  margin: 0 28px 28px 0;
-}
-.right_small {
-  margin: 0 0 28px 28px;
-}
-.left_large {
-  margin-right: 0px;
-}
-.right_large {
-  margin-left: 28px;
+@media (max-width:425px) {
+  .content-container{
+    height: 250px;
+    margin-top: 50px;
+    width: 100%;
+  }
+  .div_large_right{
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
+  }
 }
 </style>
