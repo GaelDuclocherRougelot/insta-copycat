@@ -104,7 +104,7 @@
               </svg>
           <img class="rounded-full" :src="require(`../assets/user.jpg`)" alt="logo">
 
-          <div v-if="profileIco" class="profileTab flex flex-col items-center bg-white mt-3 -right-5 absolute z-15">
+          <div v-if="profileIco" class="profileTab flex flex-col items-center bg-white mt-3 -right-5 absolute">
             <span class="triangle3"></span>
             <div class="profilTab-content1 flex items-center w-full hover:bg-gray-100 z-15 relative">
               <img class="mx-4 my-2" :src="require(`../assets/svg/insta/svgexport-${28}.svg`)" alt="">
@@ -341,6 +341,7 @@ export default {
       height: 194px;
       box-shadow: 0 0 5px 1px rgba(var(--jb7,0,0,0),.0975);
       border-radius: 5px;
+      z-index: 15;
   }
 
   .profileTab img {

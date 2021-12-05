@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Header/>
+    <Header class="header"/>
     <ExplorerComp/>
     <Footer id="footer"/>
   </div>
@@ -23,6 +23,11 @@ export default {
   @media (max-width: 415px) {
     #footer {
       display: block;
+    }
+  }
+  @media (max-width: 640px) {
+    .header {
+      display: none;
     }
   }
   .container{

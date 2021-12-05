@@ -1,6 +1,14 @@
 <template>
   <div>
     <div class="main-container">
+        <div class="search-container">
+          <img
+            class="img-search w-4"
+            src="../assets/svg\insta/search.svg"
+            alt="search icon"
+          />
+          <input type="text" placeholder="Rechercher" />
+        </div>
       <div class="content-container">
 
         <div class="div_large_right">
@@ -68,7 +76,6 @@
             <img src="" alt="" />
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -88,9 +95,24 @@ export default {};
   max-width: 975px;
   width: 100%;
   height: 100%;
-  margin-top: 82px;
   display: flex;
   flex-direction: column;
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+  width: 100%;
+  position: fixed;
+  background-color: #FAFAFA;
+}
+input{
+  padding: 10px;
+  width: 90%;
+}
+.img-search{
+
 }
 
 /* IMAGE PROPERTIES */
@@ -133,7 +155,7 @@ export default {};
   margin-bottom: 28px;
 }
 
- /* DIV large at RIGHT */
+/* DIV large at RIGHT */
 .div_large_right .div1 {
   grid-area: 1 / 1 / 3 / 2;
   background: rgb(133, 133, 133);
@@ -146,7 +168,7 @@ export default {};
   grid-area: 1 / 2 / 5 / 4;
   background: rgb(133, 133, 133);
 }
- /*DIV large at LEFT */
+/*DIV large at LEFT */
 .div_large_left .div1 {
   grid-area: 1 / 1 / 5 / 3;
   background: rgb(133, 133, 133);
@@ -156,10 +178,10 @@ export default {};
   background: rgb(133, 133, 133);
 }
 .div_large_left .div3 {
-  grid-area: 5 / 3 / 3 / 4 ;
+  grid-area: 5 / 3 / 3 / 4;
   background: rgb(133, 133, 133);
 }
-  /* 6 cubes */
+/* 6 cubes */
 .div_small_images .div1 {
   grid-area: 1 / 1 / 3 / 2;
   background: rgb(133, 133, 133);
@@ -185,47 +207,46 @@ export default {};
   background: rgb(133, 133, 133);
 }
 
-@media (max-width:768px) {
-  .content-container{
+@media (max-width: 768px) {
+  .content-container {
     height: 2500px;
-    margin-top: 60px;
   }
-  .div_large_right{
-  grid-column-gap: 2px;
-  grid-row-gap: 2px;
-  margin-bottom: 2px;
-  }
-  .div_large_left{
+  .div_large_right {
     grid-column-gap: 2px;
     grid-row-gap: 2px;
     margin-bottom: 2px;
   }
-  .div_small_images{
+  .div_large_left {
+    grid-column-gap: 2px;
+    grid-row-gap: 2px;
+    margin-bottom: 2px;
+  }
+  .div_small_images {
     grid-column-gap: 2px;
     grid-row-gap: 2px;
     margin-bottom: 2px;
   }
 }
-@media (max-width:425px) {
-  .main-container{
-    height: 1100px;
+@media (max-width: 425px) {
+  .main-container {
+    height: 1050px;
   }
-  .content-container{
+  .content-container {
     height: 1000px;
-    margin-top: 50px;
     width: 100%;
+    margin-top: 44px;
   }
-  .div_large_right{
-  grid-column-gap: 2px;
-  grid-row-gap: 2px;
-  margin-bottom: 2px;
-  }
-  .div_large_left{
+  .div_large_right {
     grid-column-gap: 2px;
     grid-row-gap: 2px;
     margin-bottom: 2px;
   }
-  .div_small_images{
+  .div_large_left {
+    grid-column-gap: 2px;
+    grid-row-gap: 2px;
+    margin-bottom: 2px;
+  }
+  .div_small_images {
     grid-column-gap: 2px;
     grid-row-gap: 2px;
     margin-bottom: 2px;
